@@ -1,0 +1,6 @@
+{
+  "name": "Điều chuyển tài sản - Quản lý tài sản nội bộ",
+  "description": "Hệ thống quản lý quy trình điều chuyển tài sản nội bộ theo tiêu chuẩn doanh nghiệp: lập yêu cầu, phê duyệt hồ sơ, lập biên bản bàn giao, nghiệm thu và cập nhật sổ theo dõi tài sản.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

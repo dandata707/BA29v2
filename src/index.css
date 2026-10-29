@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Be Vietnam Pro', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+  }
+}
+
+/* Custom styling for date inputs */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Scrollbar styling for smooth UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@media print {
+  body:has(.asset-transfer-print) * { visibility: hidden; }
+  body:has(.asset-transfer-print) .asset-transfer-print,
+  body:has(.asset-transfer-print) .asset-transfer-print * { visibility: visible; }
+  .asset-transfer-print { position: absolute; inset: 0; display: block; padding: 0; background: white; overflow: visible; }
+  .asset-transfer-print > div { max-height: none; overflow: visible; max-width: none; box-shadow: none; border: 0; }
+  body:has(.asset-transfer-print), body:has(.asset-transfer-print) #root { height: auto; overflow: visible; }
+  body:has(.liquidation-print) * { visibility: hidden; }
+  body:has(.liquidation-print) .liquidation-print,
+  body:has(.liquidation-print) .liquidation-print * { visibility: visible; }
+  .liquidation-print { position: absolute; inset: 0; display: block; padding: 0; background: white; overflow: visible; }
+  .liquidation-print > div,
+  .liquidation-print > div > div { max-height: none; overflow: visible; max-width: none; box-shadow: none; border: 0; padding: 0; background: white; }
+  body:has(.liquidation-print), body:has(.liquidation-print) #root { height: auto; overflow: visible; }
+  body:has(.asset-return-print) * { visibility: hidden; }
+  body:has(.asset-return-print) .asset-return-print,
+  body:has(.asset-return-print) .asset-return-print * { visibility: visible; }
+  .asset-return-print { position: absolute; inset: 0; display: block; padding: 0; background: white; overflow: visible; }
+  .asset-return-print > div { margin: 0; max-width: none; border: 0; box-shadow: none; overflow: visible; }
+  body:has(.asset-return-print), body:has(.asset-return-print) #root { height: auto; overflow: visible; }
+}

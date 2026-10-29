@@ -1,0 +1,432 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Quản lý tài sản - Lý do từ chối</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style data-purpose="custom-scrollbars">
+    /* Custom scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex font-sans overflow-x-hidden">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-white border-r border-slate-200/80 flex flex-col justify-between shrink-0 min-h-screen" data-purpose="desktop-sidebar">
+<div>
+<!-- Brand Logo & Header -->
+<div class="px-6 py-5 flex items-center gap-3 border-b border-slate-100">
+<div class="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-lg shadow-sm">
+          BA
+        </div>
+<div>
+<h1 class="text-base font-bold text-slate-900 leading-tight tracking-tight">BA Asset</h1>
+<p class="text-[11px] text-slate-400 font-medium tracking-wide uppercase">QUẢN LÝ TÀI SẢN</p>
+</div>
+</div>
+<!-- Navigation Section -->
+<div class="px-4 py-4">
+<p class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2">KHÔNG GIAN LÀM VIỆC</p>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-colors" href="#">
+<i class="fa-regular fa-house text-slate-400 w-5"></i>
+<span>Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-colors" href="#">
+<i class="fa-regular fa-user text-slate-400 w-5"></i>
+<span>Tài sản của tôi</span>
+</a>
+<!-- Active Nav Item -->
+<div class="space-y-1">
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-blue-50 text-blue-600 font-semibold text-sm transition-colors" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-regular fa-folder-open text-blue-600 w-5"></i>
+<span>Cấp phát tài sản</span>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-blue-600"></i>
+</a>
+<!-- Submenu items -->
+<div class="pl-11 pr-3 py-1 space-y-1">
+<a class="block py-1.5 text-sm text-slate-500 hover:text-blue-600 font-medium" href="#">Bàn giao tài sản</a>
+</div>
+</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-colors" href="#">
+<i class="fa-regular fa-clock-rotate-left text-slate-400 w-5"></i>
+<span>Thu hồi tài sản</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-colors" href="#">
+<i class="fa-solid fa-arrow-right-arrow-left text-slate-400 w-5"></i>
+<span>Điều chuyển tài sản</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-colors" href="#">
+<i class="fa-regular fa-screwdriver-wrench text-slate-400 w-5"></i>
+<span>Báo hỏng / Bảo trì</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar Bottom Footer -->
+<div class="p-4 border-t border-slate-100">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm mb-3" href="#">
+<i class="fa-regular fa-circle-question text-slate-400 w-5"></i>
+<span>Trợ giúp</span>
+</a>
+<!-- Current User Profile Card -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-200/60">
+<div class="flex items-center gap-3 overflow-hidden">
+<div class="h-9 w-9 rounded-full bg-blue-100 text-blue-600 font-bold flex items-center justify-center text-xs shrink-0">
+            NA
+          </div>
+<div class="min-w-0">
+<p class="text-xs font-bold text-slate-900 truncate">Nguyễn Minh Anh</p>
+<p class="text-[11px] text-slate-400 truncate">Nhân viên</p>
+</div>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400 pr-1"></i>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: Main Dashboard Content -->
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- Top Breadcrumbs and Notification bar -->
+<header class="px-8 py-4 border-b border-slate-200/70 bg-white/70 backdrop-blur-md flex items-center justify-between sticky top-0 z-10">
+<nav class="flex items-center text-xs font-medium text-slate-500 gap-2">
+<i class="fa-regular fa-house text-slate-400"></i>
+<span>/</span>
+<span class="hover:text-slate-700">Cấp phát tài sản</span>
+<span>/</span>
+<span class="text-slate-800 font-semibold">Phiếu yêu cầu của tôi</span>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100">
+<i class="fa-regular fa-bell text-base"></i>
+<span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+<div class="h-8 w-8 rounded-full bg-blue-100 text-blue-600 font-bold text-xs flex items-center justify-center">
+          NA
+        </div>
+</div>
+</header>
+<!-- Page Body Content -->
+<div class="p-8 max-w-7xl w-full mx-auto space-y-6">
+<!-- Title & Action Section -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 tracking-tight">Phiếu yêu cầu cấp phát của tôi</h2>
+<p class="text-xs sm:text-sm text-slate-500 mt-1">Theo dõi các phiếu yêu cầu bạn đã tạo và tiến độ cấp phát tài sản.</p>
+</div>
+<button class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium text-sm shadow-sm shadow-blue-500/20 transition-all self-start sm:self-auto">
+<i class="fa-solid fa-plus text-xs"></i>
+<span>Tạo mới</span>
+</button>
+</div>
+<!-- Filters Filter Bar -->
+<div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[220px]">
+<label class="block text-xs font-medium text-slate-600 mb-1">Mã phiếu</label>
+<div class="relative">
+<i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+<input class="w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-blue-500" placeholder="Nhập mã phiếu" type="text">
+</div>
+</div>
+<div class="w-48">
+<label class="block text-xs font-medium text-slate-600 mb-1">Trạng thái</label>
+<select class="w-full text-xs rounded-lg border-slate-200 py-1.5 focus:border-blue-500 focus:ring-blue-500 text-slate-700">
+<option>Tất cả trạng thái</option>
+</select>
+</div>
+<div class="w-48">
+<label class="block text-xs font-medium text-slate-600 mb-1">Loại yêu cầu</label>
+<select class="w-full text-xs rounded-lg border-slate-200 py-1.5 focus:border-blue-500 focus:ring-blue-500 text-slate-700">
+<option>Tất cả loại yêu cầu</option>
+</select>
+</div>
+<div class="self-end pb-0.5">
+<button class="inline-flex items-center gap-1.5 text-xs text-blue-600 hover:text-blue-700 font-medium py-1.5 px-2">
+<i class="fa-solid fa-rotate-right text-xs"></i>
+<span>Xóa bộ lọc</span>
+</button>
+</div>
+</div>
+<!-- Main Request Slips Table Container -->
+<div class="bg-white rounded-xl border border-slate-200/80 shadow-sm overflow-hidden">
+<div class="p-4 border-b border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-slate-800 text-sm">Danh sách phiếu</h3>
+<span class="text-xs bg-slate-100 text-slate-600 font-semibold px-2 py-0.5 rounded-full">24 phiếu</span>
+</div>
+<button class="text-slate-400 hover:text-slate-600 text-sm">
+<i class="fa-solid fa-rotate"></i>
+</button>
+</div>
+<!-- Allocation Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="border-b border-slate-200 bg-slate-50/60 text-slate-500 font-medium">
+<th class="py-3 px-4">STT</th>
+<th class="py-3 px-4">Mã phiếu</th>
+<th class="py-3 px-4">Loại yêu cầu</th>
+<th class="py-3 px-4">Người nhận tài sản</th>
+<th class="py-3 px-4">Ngày tạo</th>
+<th class="py-3 px-4">Ngày cần sử dụng</th>
+<th class="py-3 px-4 text-center">Trạng thái</th>
+<th class="py-3 px-4 text-center">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700 font-normal">
+<!-- Item 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 px-4 text-slate-400">1</td>
+<td class="py-3.5 px-4 font-semibold text-blue-600">CP-2026-024</td>
+<td class="py-3.5 px-4">Cho cá nhân</td>
+<td class="py-3.5 px-4 font-medium text-slate-800">Nguyễn Minh Anh</td>
+<td class="py-3.5 px-4 text-slate-500">20/10/2026</td>
+<td class="py-3.5 px-4 text-slate-500">25/10/2026</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-600 border border-amber-200">Chờ duyệt</span>
+</td>
+<td class="py-3.5 px-4 text-center text-slate-400 hover:text-slate-600 cursor-pointer">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 px-4 text-slate-400">2</td>
+<td class="py-3.5 px-4 font-semibold text-blue-600">CP-2026-023</td>
+<td class="py-3.5 px-4">Cho nhân viên mới</td>
+<td class="py-3.5 px-4 font-medium text-slate-800">Trần Hoàng Nam</td>
+<td class="py-3.5 px-4 text-slate-500">19/10/2026</td>
+<td class="py-3.5 px-4 text-slate-500">24/10/2026</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-600 border border-amber-200">Chờ duyệt</span>
+</td>
+<td class="py-3.5 px-4 text-center text-slate-400 hover:text-slate-600 cursor-pointer">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 px-4 text-slate-400">3</td>
+<td class="py-3.5 px-4 font-semibold text-blue-600">CP-2026-022</td>
+<td class="py-3.5 px-4">Cho cá nhân</td>
+<td class="py-3.5 px-4 font-medium text-slate-800">Nguyễn Minh Anh</td>
+<td class="py-3.5 px-4 text-slate-500">18/10/2026</td>
+<td class="py-3.5 px-4 text-slate-500">23/10/2026</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-600 border border-emerald-200">Đã duyệt</span>
+</td>
+<td class="py-3.5 px-4 text-center text-slate-400 hover:text-slate-600 cursor-pointer">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 px-4 text-slate-400">4</td>
+<td class="py-3.5 px-4 font-semibold text-blue-600">CP-2026-021</td>
+<td class="py-3.5 px-4">Cho cá nhân</td>
+<td class="py-3.5 px-4 font-medium text-slate-800">Nguyễn Minh Anh</td>
+<td class="py-3.5 px-4 text-slate-500">17/10/2026</td>
+<td class="py-3.5 px-4 text-slate-500">22/10/2026</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600">Nháp</span>
+</td>
+<td class="py-3.5 px-4 text-center text-slate-400 hover:text-slate-600 cursor-pointer">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</td>
+</tr>
+<!-- Item 5 (Target Item) -->
+<tr class="bg-red-50/20 hover:bg-red-50/40 transition-colors">
+<td class="py-3.5 px-4 text-slate-400">5</td>
+<td class="py-3.5 px-4 font-bold text-blue-600">CP-2026-020</td>
+<td class="py-3.5 px-4">Cho nhân viên mới</td>
+<td class="py-3.5 px-4 font-medium text-slate-800">Vũ Ngọc Mai</td>
+<td class="py-3.5 px-4 text-slate-500">16/10/2026</td>
+<td class="py-3.5 px-4 text-slate-500">21/10/2026</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-red-100 text-red-600 border border-red-200 cursor-pointer hover:bg-red-200 transition-colors" onclick="openModal()">Từ chối</span>
+</td>
+<td class="py-3.5 px-4 text-center text-slate-400 hover:text-slate-600 cursor-pointer">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</td>
+</tr>
+<!-- Item 6 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 px-4 text-slate-400">6</td>
+<td class="py-3.5 px-4 font-semibold text-blue-600">CP-2026-019</td>
+<td class="py-3.5 px-4">Cho cá nhân</td>
+<td class="py-3.5 px-4 font-medium text-slate-800">Nguyễn Minh Anh</td>
+<td class="py-3.5 px-4 text-slate-500">15/10/2026</td>
+<td class="py-3.5 px-4 text-slate-500">20/10/2026</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-600 border border-emerald-200">Đã cấp phát</span>
+</td>
+<td class="py-3.5 px-4 text-center text-slate-400 hover:text-slate-600 cursor-pointer">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination -->
+<div class="px-4 py-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+<p>Hiển thị <span class="font-medium text-slate-800">1–6</span> trên <span class="font-medium text-slate-800">24</span> phiếu</p>
+<div class="flex items-center gap-2">
+<select class="text-xs rounded-lg border-slate-200 py-1 focus:ring-blue-500 focus:border-blue-500 text-slate-600">
+<option>6 / trang</option>
+</select>
+<div class="flex items-center space-x-1">
+<button class="w-7 h-7 rounded border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 disabled:opacity-50" disabled="">
+<i class="fa-solid fa-chevron-left text-[10px]"></i>
+</button>
+<button class="w-7 h-7 rounded bg-blue-600 text-white font-semibold flex items-center justify-center shadow-sm">1</button>
+<button class="w-7 h-7 rounded border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">2</button>
+<button class="w-7 h-7 rounded border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">3</button>
+<button class="w-7 h-7 rounded border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">4</button>
+<button class="w-7 h-7 rounded border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50">
+<i class="fa-solid fa-chevron-right text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- END: Main Dashboard Content -->
+<!-- BEGIN: Rejection Reason Modal Popup (Matching IMAGE_1) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[2px] transition-opacity duration-200" data-purpose="rejection-reason-modal" id="rejectionModal">
+<!-- Modal Card Container -->
+<div class="bg-white rounded-2xl shadow-2xl border border-slate-100 max-w-[500px] w-full p-6 sm:p-7 relative transition-all transform scale-100 animate-in fade-in zoom-in-95 duration-150">
+<!-- Top Close Button (X) -->
+<button aria-label="Đóng cửa sổ" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 transition-colors p-1.5 rounded-lg hover:bg-slate-100" onclick="closeModal()">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 16 16">
+<line x1="2" x2="14" y1="2" y2="14"></line>
+<line x1="14" x2="2" y1="2" y2="14"></line>
+</svg>
+</button>
+<!-- Modal Title & Header -->
+<div class="mb-5 pr-8">
+<h3 class="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight mb-1">Lý do từ chối</h3>
+<p class="text-xs sm:text-sm text-[#475569]">Thông tin phản hồi cho phiếu yêu cầu cấp phát.</p>
+</div>
+<!-- Divider line -->
+<hr class="border-t border-slate-100 mb-5">
+<!-- Meta Information Grid -->
+<div class="space-y-4">
+<!-- Row 1: Mã phiếu & Trạng thái badge -->
+<div class="flex items-start justify-between">
+<div>
+<span class="block text-xs text-slate-500 font-medium mb-0.5">Mã phiếu</span>
+<span class="text-base sm:text-lg font-bold text-[#0F172A] tracking-tight">CP-2026-020</span>
+</div>
+<div>
+<!-- Status Badge -->
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#FEE2E2] text-[#DC2626]">
+              Từ chối
+            </span>
+</div>
+</div>
+<!-- Row 2: Người từ chối & Thời điểm từ chối -->
+<div class="grid grid-cols-2 gap-4 pt-1">
+<div>
+<span class="block text-xs text-slate-500 font-medium mb-0.5">Người từ chối</span>
+<span class="text-sm sm:text-base font-semibold text-[#0F172A]">Lê Hoàng Phúc</span>
+</div>
+<div>
+<span class="block text-xs text-slate-500 font-medium mb-0.5">Thời điểm từ chối</span>
+<span class="text-sm sm:text-base font-semibold text-[#0F172A]">20/10/2026 <span class="text-slate-400 font-normal">·</span> 15:30</span>
+</div>
+</div>
+<!-- Rejection Reason Detail Box -->
+<div class="pt-2">
+<label class="block text-sm font-semibold text-[#0F172A] mb-2">Lý do từ chối</label>
+<div class="bg-[#F1F5F9] border border-slate-200/60 rounded-xl p-3.5 sm:p-4 text-xs sm:text-sm text-[#334155] leading-relaxed">
+            Hiện tại kho chưa có máy tính xách tay đáp ứng cấu hình yêu cầu. Vui lòng trao đổi với bộ phận Quản lý tài sản để lựa chọn thiết bị phù hợp và lập phiếu yêu cầu mới.
+          </div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="mt-6 sm:mt-7 flex justify-end">
+<button class="w-full sm:w-auto px-7 py-2.5 bg-[#2563EB] hover:bg-[#1D4ED8] active:bg-[#1e40af] text-white font-medium text-sm rounded-lg shadow-sm shadow-blue-500/20 transition duration-150 ease-in-out text-center" onclick="closeModal()" type="button">
+          Đóng
+        </button>
+</div>
+</div>
+</div>
+<!-- END: Rejection Reason Modal Popup -->
+<!-- JavaScript for Modal Interactivity -->
+<script data-purpose="modal-interactivity">
+    const modal = document.getElementById('rejectionModal');
+
+    function closeModal() {
+      if (modal) {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          modal.style.display = 'none';
+        }, 200);
+      }
+    }
+
+    function openModal() {
+      if (modal) {
+        modal.style.display = 'flex';
+        setTimeout(() => {
+          modal.classList.remove('opacity-0', 'pointer-events-none');
+        }, 10);
+      }
+    }
+
+    // Dismiss when clicking outside modal card
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Dismiss with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body></html>

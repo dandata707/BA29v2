@@ -1,0 +1,1371 @@
+1. Các chức năng chính trong quy trình nghiệp vụ
+Nhóm nghiệp vụ
+Chức năng chính
+Số chức năng
+Quản lý yêu cầu
+Tạo và gửi yêu cầu; Theo dõi yêu cầu
+2
+Kiểm tra và phê duyệt
+Kiểm tra hồ sơ và điều kiện điều chuyển; Phê duyệt yêu cầu
+2
+Quản lý bàn giao
+Lập biên bản bàn giao
+1
+Cập nhật sổ sách và lưu hồ sơ
+Cập nhật sổ sách và lưu hồ sơ
+1
+
+
+2. Quy trình nghiệp vụ được tin học hóa
+Quy trình điều chuyển tài sản. 
+Tên bước được tin học hóa
+Tác nhân
+Tên chức năng hỗ trợ
+Đầu vào
+Đầu ra
+1. Lập và gửi yêu cầu điều chuyển
+Người đề nghị
+Tạo và gửi yêu cầu
+Mã tài sản, lý do điều chuyển, vị trí nhận, người dự kiến tiếp nhận
+Hiển thị tên tài sản và vị trí hiện tại theo mã tài sản; yêu cầu được lưu, tạo mã yêu cầu, chuyển sang trạng thái “Chờ tiếp nhận”
+2. Theo dõi yêu cầu
+Người đề nghị
+Theo dõi yêu cầu
+Mã yêu cầu hoặc điều kiện tìm kiếm
+Danh sách yêu cầu, trạng thái và kết quả xử lý
+3. Tiếp nhận, kiểm tra hồ sơ và điều kiện điều chuyển
+HCNS
+Kiểm tra hồ sơ và điều kiện điều chuyển
+Thông tin yêu cầu, hồ sơ đính kèm, thông tin tài sản đối chiếu với sổ theo dõi
+Kết quả kiểm tra; trạng thái xử lý (“Yêu cầu bổ sung” hoặc “Từ chối”); lý do bổ sung hoặc từ chối nếu có
+4. Phê duyệt yêu cầu
+HCNS
+Phê duyệt yêu cầu
+Yêu cầu đã kiểm tra đạt, kết quả đánh giá điều kiện điều chuyển
+Kết quả phê duyệt, người duyệt, thời gian duyệt, trạng thái “Đã phê duyệt”
+5. Lập biên bản bàn giao
+HCNS
+Lập biên bản bàn giao
+Yêu cầu đã phê duyệt, thông tin tài sản, bên giao, bên nhận, thời gian và địa điểm bàn giao
+Biên bản bàn giao được lập và lưu, trạng thái “Chờ xác nhận bàn giao”
+6. Xác nhận bàn giao và tiếp nhận
+Bên giao, Bên nhận (xác nhận trên biên bản); HCNS ghi nhận
+Lập biên bản bàn giao
+Biên bản bàn giao, tình trạng thực tế của tài sản và phụ kiện
+Kết quả xác nhận bàn giao và tiếp nhận được ghi nhận.
+7. Cập nhật thông tin tài sản
+HCNS
+Cập nhật sổ sách và lưu hồ sơ
+Biên bản đã được hai bên xác nhận đầy đủ; vị trí, bộ phận sử dụng và người quản lý mới
+Thông tin tài sản được cập nhật
+8. Lưu hồ sơ điều chuyển
+HCNS
+Cập nhật sổ sách và lưu hồ sơ
+Yêu cầu, biên bản bàn giao, kết quả xác nhận, thông tin đã cập nhật
+Hồ sơ và lịch sử điều chuyển được lưu trữ; yêu cầu chuyển sang trạng thái “Hoàn tất”
+
+
+3. Quy tắc nghiệp vụ
+Mã
+Nội dung
+Áp dụng cho chức năng
+BR01
+Yêu cầu phải có đầy đủ thông tin bắt buộc trước khi gửi.
+Tạo và gửi yêu cầu
+BR02
+Thông tin tài sản phải được đối chiếu với sổ theo dõi hoặc nguồn dữ liệu tài sản của tổ chức.
+Kiểm tra hồ sơ và điều kiện điều chuyển
+BR03
+Chỉ HCNS có quyền mới được kiểm tra và xử lý yêu cầu.
+Kiểm tra hồ sơ và điều kiện điều chuyển; phê duyệt yêu cầu
+BR04
+Yêu cầu chỉ được phê duyệt khi hồ sơ đầy đủ và tài sản đáp ứng điều kiện điều chuyển.
+Kiểm tra hồ sơ và điều kiện điều chuyển; phê duyệt yêu cầu
+BR05
+Chỉ yêu cầu đã được phê duyệt mới được chuyển sang bước bàn giao chính thức.
+Lập biên bản bàn giao
+BR06
+Biên bản bàn giao phải ghi nhận thông tin tài sản, bên giao, bên nhận, thời gian và địa điểm bàn giao.
+Lập biên bản bàn giao
+BR07
+Việc hoàn tất điều chuyển yêu cầu có xác nhận bàn giao và tiếp nhận theo quy định của tổ chức.
+Quản lý bàn giao
+BR08
+Chỉ cập nhật vị trí và người quản lý mới sau khi bàn giao, tiếp nhận được xác nhận đầy đủ.
+Cập nhật sổ sách và lưu hồ sơ
+BR09
+Hồ sơ và lịch sử điều chuyển phải được lưu trữ để phục vụ tra cứu.
+Cập nhật sổ sách và lưu hồ sơ
+BR10
+Chỉ chuyển yêu cầu sang trạng thái “Hoàn tất” khi cập nhật thông tin tài sản và lưu hồ sơ thành công.
+Cập nhật sổ sách và lưu hồ sơ
+
+
+4. Tác nhân
+STT
+Tên tác nhân
+Vai trò, quyền hạn, chức năng được truy cập
+1
+Người đề nghị
+Tạo và gửi yêu cầu điều chuyển; theo dõi trạng thái, xem kết quả xử lý và bổ sung thông tin khi được yêu cầu. Truy cập F01, F02.
+2
+HCNS
+Tiếp nhận, kiểm tra hồ sơ và điều kiện điều chuyển; phê duyệt hoặc từ chối yêu cầu; lập biên bản bàn giao và ghi nhận xác nhận của Bên giao, Bên nhận; cập nhật sổ sách tài sản; lưu hồ sơ và lịch sử điều chuyển. Truy cập F03, F04, F05, F06.
+
+
+5. Danh sách chức năng và đặc tả 
+MÃ
+Chức năng cha
+Chức năng con
+MÃ UC
+MÃ AD
+F01
+Quản lý yêu cầu
+Tạo và gửi yêu cầu
+UC04
+AD04
+F02
+Theo dõi yêu cầu
+UC04
+AD04
+F03
+Kiểm tra và phê duyệt
+
+
+Kiểm tra hồ sơ và điều kiện điều chuyển
+UC04
+AD04
+F04
+Phê duyệt yêu cầu
+UC04
+AD04
+F05
+Quản lý bàn giao
+Lập biên bản bàn giao
+UC04
+AD04
+F06
+Cập nhật sổ sách và lưu hồ sơ
+Cập nhật sổ sách và lưu hồ sơ (cập nhật thông tin tài sản; lưu hồ sơ và lịch sử điều chuyển)
+UC04
+AD04
+
+
+6.Sơ đồ Use case tổng
+
+
+7. Sơ đồ AD
+https://drive.google.com/file/d/1R2_XCjuhC4e3jV1Lico-xLE7-nVUDR7y/view?usp=sharing
+
+
+1. Thông tin UC
+Thuộc tính
+Nội dung
+Mã UC
+UC04
+Mô tả UC
+Cho phép Người đề nghị tạo và theo dõi yêu cầu điều chuyển tài sản; HCNS tiếp nhận, kiểm tra, phê duyệt yêu cầu, lập biên bản bàn giao, ghi nhận xác nhận của Bên giao và Bên nhận trên biên bản, sau đó cập nhật sổ sách và lưu hồ sơ khi điều chuyển hoàn tất.
+Tác nhân chính
+Người đề nghị; HCNS
+Tiền điều kiện
+Người đề nghị và HCNS đã đăng nhập hệ thống, có quyền thực hiện các chức năng tương ứng. Tài sản cần điều chuyển có trong sổ theo dõi tài sản của tổ chức.
+Hậu điều kiện
+Thành công: thông tin vị trí, bộ phận sử dụng và người quản lý tài sản được cập nhật, hồ sơ được lưu trữ, yêu cầu chuyển sang “Hoàn tất”. Không thành công: hệ thống lưu trạng thái (“Chờ bổ sung”, “Từ chối” hoặc trạng thái đang xử lý) và lý do tương ứng.
+
+2. Luồng chính
+Bước
+Hành động tác nhân
+Phản hồi hệ thống
+1
+Người đề nghị truy cập chức năng điều chuyển tài sản.
+Hiển thị danh sách yêu cầu của người đề nghị và chức năng tạo yêu cầu mới (UI01).
+2
+Người đề nghị chọn tạo yêu cầu, nhập mã tài sản, lý do điều chuyển, vị trí nhận, người dự kiến tiếp nhận; sau đó gửi yêu cầu (UI02).
+Hiển thị tên tài sản và vị trí hiện tại theo mã tài sản; kiểm tra thông tin bắt buộc, lưu yêu cầu, tạo mã yêu cầu và chuyển trạng thái sang “Chờ tiếp nhận”.
+3
+HCNS truy cập danh sách yêu cầu và chọn yêu cầu cần xử lý.
+Hiển thị chi tiết yêu cầu và thông tin tài sản liên quan (UI03).
+4
+HCNS kiểm tra tính đầy đủ của hồ sơ, đối chiếu thông tin tài sản và xác định điều kiện điều chuyển.
+Hiển thị thông tin tài sản phục vụ kiểm tra và cho phép ghi nhận kết quả xử lý.
+5
+HCNS phê duyệt yêu cầu khi hồ sơ đầy đủ và tài sản đủ điều kiện điều chuyển.
+Lưu kết quả phê duyệt, thời gian xử lý; chuyển trạng thái sang “Đã phê duyệt”.
+6
+HCNS chọn lập biên bản bàn giao và bổ sung bên giao, bên nhận, thời gian, địa điểm bàn giao (UI04).
+Tạo và lưu biên bản bàn giao từ thông tin yêu cầu đã phê duyệt; chuyển trạng thái sang “Chờ xác nhận bàn giao”.
+7
+Bên giao kiểm tra tài sản thực tế và xác nhận bàn giao trên biên bản; HCNS ghi nhận kết quả vào hệ thống (UI05).
+Lưu kết quả xác nhận bàn giao.
+8
+Bên nhận kiểm tra tình trạng tài sản, phụ kiện và xác nhận tiếp nhận trên biên bản; HCNS ghi nhận kết quả vào hệ thống (UI05).
+Lưu kết quả xác nhận tiếp nhận.
+9
+HCNS kiểm tra hồ sơ bàn giao và xác nhận hoàn tất điều chuyển.
+Kiểm tra kết quả xác nhận của hai bên và tính đầy đủ của hồ sơ. Cập nhật vị trí, bộ phận sử dụng và người quản lý mới của tài sản; lưu hồ sơ và lịch sử điều chuyển; chuyển trạng thái yêu cầu sang “Hoàn tất”.
+
+3. Luồng thay thế
+Mã
+Bước liên quan
+Hành động tác nhân
+Phản hồi hệ thống
+A1
+2
+Người đề nghị nhập thiếu thông tin hoặc dữ liệu chưa hợp lệ.
+Thông báo nội dung cần điều chỉnh và yêu cầu bổ sung trước khi gửi.
+A2
+4
+HCNS phát hiện hồ sơ chưa đầy đủ.
+Ghi nhận lý do, chuyển trạng thái “Chờ bổ sung”; Người đề nghị thấy lý do ở màn Theo dõi yêu cầu.
+A3
+Sau A2
+Người đề nghị mở yêu cầu “Chờ bổ sung”, cập nhật thông tin và gửi lại.
+Lưu thông tin bổ sung, chuyển trạng thái về “Chờ tiếp nhận”; quay lại bước 3.
+A4
+4
+HCNS xác định tài sản không đủ điều kiện điều chuyển hoặc không có tài sản phù hợp.
+Cho phép ghi nhận lý do từ chối, chuyển trạng thái “Từ chối”, lưu kết quả; Người đề nghị xem kết quả ở màn Theo dõi yêu cầu. Luồng kết thúc.
+A5
+8
+Bên nhận phát hiện tình trạng tài sản không đúng như thông tin dự kiến.
+Ghi nhận sai lệch, giữ yêu cầu ở “Chờ xác nhận bàn giao” để HCNS phối hợp xử lý (điều chỉnh biên bản, xác nhận lại) rồi tiếp tục bước 7 hoặc 9.
+A6
+Bất kỳ
+Người đề nghị theo dõi yêu cầu đã gửi trước đó.
+Hiển thị danh sách, chi tiết, trạng thái hiện tại, kết quả xử lý và lý do bổ sung hoặc từ chối của yêu cầu do chính người đó tạo.
+
+4. Luồng ngoại lệ
+Mã
+Bước liên quan
+Tình huống ngoại lệ
+Phản hồi hệ thống
+E1
+2
+Không thể lưu yêu cầu do lỗi hệ thống.
+Thông báo lỗi và không hiển thị thông báo gửi thành công.
+E2
+4
+Không tìm thấy tài sản hoặc thông tin tài sản không khớp.
+Thông báo vấn đề để HCNS xác minh; không cho phê duyệt khi chưa đủ căn cứ.
+E3
+6
+Không thể lập hoặc lưu biên bản bàn giao.
+Thông báo lỗi và giữ yêu cầu ở trạng thái “Đã phê duyệt”.
+E4
+7–8
+Một trong hai bên chưa xác nhận bàn giao hoặc tiếp nhận.
+Giữ trạng thái “Chờ xác nhận bàn giao”, không cho phép hoàn tất điều chuyển.
+E5
+10
+Không thể cập nhật thông tin tài sản hoặc lưu hồ sơ.
+Thông báo lỗi, ghi nhận tình trạng xử lý và không chuyển yêu cầu sang “Hoàn tất” khi dữ liệu chưa được cập nhật thành công.
+
+5. Quy tắc nghiệp vụ
+Mã quy tắc
+Nội dung
+BR01
+Yêu cầu phải có đầy đủ thông tin bắt buộc (mã tài sản, lý do điều chuyển, vị trí nhận, người dự kiến tiếp nhận) trước khi gửi.
+BR02
+Thông tin tài sản phải được đối chiếu với sổ theo dõi hoặc nguồn dữ liệu tài sản của tổ chức.
+BR03
+Chỉ HCNS có quyền mới được kiểm tra, phê duyệt, lập biên bản bàn giao, cập nhật sổ sách và lưu hồ sơ.
+BR04
+Yêu cầu chỉ được phê duyệt khi hồ sơ đầy đủ và tài sản đáp ứng điều kiện điều chuyển.
+BR05
+Chỉ yêu cầu đã được phê duyệt mới được chuyển sang bước bàn giao chính thức.
+BR06
+Biên bản bàn giao phải ghi nhận thông tin tài sản, bên giao, bên nhận, thời gian và địa điểm bàn giao.
+BR07
+Chỉ hoàn tất điều chuyển khi biên bản có xác nhận bàn giao của Bên giao và xác nhận tiếp nhận của Bên nhận theo quy định của tổ chức.
+BR08
+Chỉ cập nhật vị trí, bộ phận sử dụng và người quản lý mới sau khi bàn giao, tiếp nhận được xác nhận đầy đủ.
+BR09
+Hồ sơ và lịch sử điều chuyển phải được lưu trữ để phục vụ tra cứu.
+BR10
+Chỉ chuyển yêu cầu sang trạng thái “Hoàn tất” khi cập nhật thông tin tài sản và lưu hồ sơ thành công.
+
+6. Mã AD và mã giao diện
+Thuộc tính
+Nội dung
+Mã AD
+AD04 – Activity Diagram điều chuyển tài sản
+Mã giao diện
+UI01 – Danh sách yêu cầu; 
+UI02 – Tạo yêu cầu; 
+UI03 – Chi tiết và xử lý yêu cầu; 
+UI04 – Lập biên bản bàn giao; 
+UI05 – Ghi nhận xác nhận bàn giao và tiếp nhận
+
+
+8.2 Sơ đồ hoạt động
+8.3 Đặc tả giao diện 
+
+Thành phần chung (số 1–6, áp dụng cho cả 5 màn)
+STT
+Tên
+Kiểu đối tượng [Độ dài]
+Input/Output
+Giá trị mặc định
+Mô tả
+1
+Tên phân hệ / menu trái
+Label + Icon
+Output
+Điều chuyển tài sản
+Click về UI01. Mục đang chọn tô nền xanh nhạt.
+2
+Ô tra cứu toàn cục
+Textbox [100]
+Input
+N/A
+Nhập mã tài sản hoặc số phiếu; không bắt buộc; không check trùng; Enter để tra cứu.
+3
+Chuông thông báo
+Icon button
+Input/Output
+N/A
+Click mở danh sách thông báo; chấm đỏ khi có thông báo chưa đọc.
+4
+Trợ giúp
+Icon button
+Input
+N/A
+Click mở hướng dẫn sử dụng.
+5
+Avatar
+Icon button
+Input
+N/A
+Click mở menu tài khoản (thông tin, đăng xuất).
+6
+Người dùng đăng nhập
+Label + Avatar
+Output
+N/A
+Lấy từ tài khoản đăng nhập: dòng 1 là phòng ban, dòng 2 là vai trò (Nhân viên / Quản trị viên).
+
+
+
+Luồng 1 – Tạo và gửi yêu cầu (UI02, Người đề nghị)
+STT
+Tên
+Kiểu đối tượng [Độ dài]
+Input/Output
+Giá trị mặc định
+Mô tả
+7
+Nhãn "TẠO YÊU CẦU ĐIỀU CHUYỂN"
+Tag
+Output
+TẠO YÊU CẦU ĐIỀU CHUYỂN
+Chữ in hoa, nền xanh nhạt.
+8
+Nút quay lại
+Icon button
+Input
+N/A
+Click về UI01.
+9
+Tiêu đề và mô tả trang
+Label
+Output
+Tạo yêu cầu điều chuyển
+Tiêu đề chữ đậm, mô tả chữ xám nhỏ bên dưới.
+10
+Mã tài sản *
+Combobox [30]
+Input
+N/A
+Bắt buộc. Chọn 1 giá trị trong danh sách. Check trùng: không. Để trống thì viền đỏ, báo "Vui lòng chọn tài sản".
+11
+Tên tài sản
+Textbox readonly [150]
+Output
+N/A
+Lấy từ Tài sản, trường Tên tài sản, theo mã ở ô 10. Nền xám, icon khóa, không sửa.
+12
+Vị trí hiện tại
+Textbox readonly [200]
+Output
+N/A
+Lấy từ Tài sản, trường Vị trí hiện tại, theo mã ở ô 10. Nền xám, không sửa.
+13
+Vị trí nhận *
+Dropdown
+Input
+N/A
+Bắt buộc. Chọn 1 giá trị từ danh mục bộ phận/chi nhánh/địa điểm. Phải khác ô 12.
+14
+Người dự kiến tiếp nhận *
+Dropdown
+Input
+N/A
+Bắt buộc. Chọn 1 nhân sự thuộc vị trí nhận, hiển thị "Họ tên (Mã NV)". Để trống thì viền đỏ, nền hồng, báo "Vui lòng chọn nhân sự phụ trách tiếp nhận tài sản".
+15
+Lý do điều chuyển *
+Textarea [500]
+Input
+N/A
+Bắt buộc. Văn bản tự do, tối đa 500 ký tự. Check trùng: không.
+16
+Bộ đếm ký tự
+Label
+Output
+N/A
+Dạng "x/500", đếm theo ô 15.
+17
+Tài liệu / Phiếu đính kèm
+File upload
+Input
+N/A
+Không bắt buộc. Chỉ nhận .PDF, .DOCX, .XLSX, tối đa 15MB mỗi tệp. Sau khi tải hiện tên tệp, dung lượng, giờ tải lên, nhãn "ĐÃ TẢI LÊN".
+18
+Nút tải xuống tệp
+Icon button
+Input
+N/A
+Click tải tệp về máy.
+19
+Nút xóa tệp
+Icon button
+Input
+N/A
+Click xóa tệp khỏi yêu cầu.
+20
+Hủy
+Button
+Input
+Hủy
+Click bỏ nhập liệu, về UI01.
+21
+Gửi yêu cầu
+Button
+Input
+Gửi yêu cầu
+Kiểm tra ô 10, 13, 14, 15. Hợp lệ thì tạo mã yêu cầu, chuyển trạng thái "Chờ tiếp nhận". Không hợp lệ thì báo lỗi đỏ dưới ô tương ứng.
+
+Quy tắc màn hình
+Mã
+Quy tắc
+QT1.1
+Gửi yêu cầu chỉ khi đủ 4 trường bắt buộc (BR01).
+QT1.2
+Chọn mã tài sản thì tự điền ô 11, 12; đổi/xóa mã thì cập nhật lại.
+QT1.3
+Mã yêu cầu tự sinh dạng DC-YYYY-NNNN, không trùng.
+
+
+Luồng 2 – Theo dõi yêu cầu (UI01)
+STT
+Tên
+Kiểu đối tượng [Độ dài]
+Input/Output
+Giá trị mặc định
+Mô tả
+7
+Tiêu đề trang
+Label
+Output
+Danh sách yêu cầu điều chuyển tài sản
+Cố định.
+8
+Nút "Tạo yêu cầu điều chuyển"
+Button
+Input
+Tạo yêu cầu điều chuyển
+Click mở UI02.
+9
+Ô tìm kiếm
+Textbox [100]
+Input
+N/A
+Tìm theo mã yêu cầu, mã tài sản, người đề nghị. Không bắt buộc, không phân biệt hoa/thường, kết hợp AND với ô 10.
+10
+Bộ lọc trạng thái
+Dropdown
+Input
+N/A
+Chọn 1 trạng thái, mặc định "Tất cả trạng thái".
+11
+Danh sách trạng thái
+List
+Input
+N/A
+Gồm: Tất cả trạng thái, Chờ tiếp nhận, Chờ bổ sung, Đã phê duyệt, Chờ xác nhận bàn giao, Từ chối, Hoàn tất. Mỗi giá trị có chấm màu như ô 13.
+12
+Mã yêu cầu
+Label
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Mã yêu cầu. Chữ đậm, icon bên trái đổi theo trạng thái.
+13
+Nhãn trạng thái
+Badge
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Trạng thái. Màu: Chờ tiếp nhận (xám), Chờ bổ sung (cam), Đã phê duyệt (xanh dương), Chờ xác nhận bàn giao (tím), Từ chối (đỏ), Hoàn tất (xanh lá).
+14
+Dòng tóm tắt
+Label
+Output
+N/A
+Ghép: Tên tài sản • Mã tài sản • Vị trí hiện tại → Vị trí nhận. Chưa có dữ liệu thì hiện "Chưa có thông tin bổ sung" (chữ nghiêng xám).
+15
+Ngày
+Label
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Ngày cập nhật gần nhất, định dạng yyyy-MM-dd. Chưa có thì hiện "Chưa cập nhật".
+16
+Mũi tên ">"
+Icon
+Input
+N/A
+Click mở chi tiết yêu cầu (UI03).
+17
+Phân trang
+Pagination
+Input
+N/A
+Nút đầu/trước/số trang/sau/cuối. Trang hiện tại nền xanh.
+
+Quy tắc màn hình
+Mã
+Quy tắc
+QT2.1
+Người đề nghị chỉ thấy yêu cầu do mình tạo (A6); HCNS thấy toàn bộ.
+QT2.2
+Sắp xếp mới nhất lên đầu; tìm kiếm và lọc áp dụng đồng thời.
+QT2.3
+Yêu cầu "Chờ bổ sung" hoặc "Từ chối" thì hiển thị lý do ở chi tiết (A2, A4).
+
+Luồng 3 – Kiểm tra hồ sơ và phê duyệt (UI03, HCNS)
+STT
+Tên
+Kiểu đối tượng [Độ dài]
+Input/Output
+Giá trị mặc định
+Mô tả
+7
+Breadcrumb
+Link
+Input
+N/A
+Click cấp đầu về UI01; cấp cuối là trang hiện tại.
+8
+Nút quay lại
+Icon button
+Input
+N/A
+Click về UI01.
+9
+Mã yêu cầu (tiêu đề)
+Label
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Mã yêu cầu. Chữ đậm, cỡ lớn.
+10
+Nhãn trạng thái
+Badge
+Output
+N/A
+Lấy từ trường Trạng thái; màu như UI01 (ô 13).
+11
+Ô phụ góc phải
+Pill
+Output
+N/A
+Chưa có nội dung trên mockup.
+12
+Mã yêu cầu
+Label
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Mã yêu cầu.
+13
+Người đề nghị
+Label
+Output
+N/A
+Lấy từ người tạo yêu cầu, dạng "Họ tên (Mã NV) - Phòng ban".
+14
+Ngày đề nghị
+Label
+Output
+N/A
+Lấy từ trường Ngày gửi, định dạng dd/MM/yyyy - HH:mm.
+15
+Vị trí nhận
+Label
+Output
+N/A
+Lấy từ trường Vị trí nhận của yêu cầu.
+16
+Dự kiến tiếp nhận
+Label
+Output
+N/A
+Lấy từ trường Người dự kiến tiếp nhận, dạng "Họ tên (Mã NV) - Chức danh".
+17
+Lý do điều chuyển
+Label
+Output
+N/A
+Lấy từ trường Lý do điều chuyển. Hiển thị đầy đủ, tự xuống dòng.
+18
+Tài liệu đính kèm
+Link
+Input/Output
+N/A
+Hiển thị số tệp đính kèm của yêu cầu; click mở danh sách để xem/tải.
+19
+Mã tài sản
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Mã tài sản.
+20
+Tên tài sản
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Tên tài sản (kèm cấu hình).
+21
+Tình trạng hiện tại
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Tình trạng (trạng thái sử dụng, chất lượng còn lại, kiểm định).
+22
+Vị trí hiện tại
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Vị trí hiện tại.
+23
+Quản lý hiện tại
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Người quản lý, dạng "Họ tên (Mã NV)".
+24
+S/N và Nguyên giá
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Số serial và Nguyên giá. Nguyên giá phân cách hàng nghìn bằng dấu chấm, kèm "VNĐ".
+25
+Checkbox "Hồ sơ đầy đủ"
+Checkbox
+Input
+N/A
+Mặc định bỏ chọn. Tích khi hồ sơ đầy đủ.
+26
+Checkbox "Đủ điều kiện điều chuyển"
+Checkbox
+Input
+N/A
+Mặc định bỏ chọn. Tích khi tài sản đủ điều kiện điều chuyển.
+27
+Lý do bổ sung / từ chối / ghi chú phê duyệt *
+Textarea [500]
+Input
+N/A
+Bắt buộc khi Yêu cầu bổ sung hoặc Từ chối. Văn bản tự do, tối đa 500 ký tự. Check trùng: không.
+28
+Bộ đếm ký tự
+Label
+Output
+N/A
+Dạng "x/500 ký tự".
+29
+Yêu cầu bổ sung
+Button
+Input
+Yêu cầu bổ sung
+Kiểm tra ô 27 có nội dung. Chuyển "Chờ bổ sung", gửi lý do cho người đề nghị.
+30
+Từ chối
+Button
+Input
+Từ chối
+Kiểm tra ô 27 có nội dung. Chuyển "Từ chối", lưu lý do. Nền hồng, chữ đỏ.
+31
+Phê duyệt
+Button
+Input
+Phê duyệt
+Yêu cầu tích cả ô 25 và 26. Chuyển "Đã phê duyệt", lưu người duyệt và thời gian duyệt.
+
+Quy tắc màn hình
+Mã
+Quy tắc
+QT3.1
+Chỉ HCNS có quyền thao tác ở ô 25–31 (BR03).
+QT3.2
+Chỉ phê duyệt khi hồ sơ đầy đủ và tài sản đủ điều kiện (BR04).
+QT3.3
+Thông tin yêu cầu và tài sản (ô 12–24) chỉ đọc; thông tin tài sản đối chiếu với sổ theo dõi (BR02).
+QT3.4
+Sau khi xử lý, khối xử lý hồ sơ chuyển sang chế độ chỉ xem.
+
+Luồng 4 – Lập biên bản bàn giao (UI04, HCNS)
+STT
+Tên
+Kiểu đối tượng [Độ dài]
+Input/Output
+Giá trị mặc định
+Mô tả
+7
+Breadcrumb
+Link
+Input
+N/A
+Click cấp đầu về UI01, cấp giữa về UI03; cấp cuối là trang hiện tại.
+8
+Nút quay lại
+Icon button
+Input
+N/A
+Click về UI03.
+9
+Tiêu đề trang
+Label
+Output
+Lập biên bản bàn giao tài sản
+Cố định.
+10
+Nhãn biểu mẫu
+Badge
+Output
+N/A
+Lấy từ cấu hình biểu mẫu, dạng "Biểu mẫu số 048/TS-2026".
+11
+Số biên bản
+Textbox readonly [20]
+Output
+Tự động sinh
+Số tự sinh, duy nhất, tăng theo năm. Không sửa.
+12
+Mã yêu cầu điều chuyển
+Textbox readonly [20]
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Mã yêu cầu. Không sửa.
+13
+Liên kết "Xem phiếu"
+Link
+Input
+Xem phiếu
+Click mở chi tiết yêu cầu (UI03).
+14
+Thời gian bàn giao *
+DateTime picker
+Input
+N/A
+Bắt buộc. Định dạng yyyy-MM-dd HH:mm. Check trùng: không.
+15
+Địa điểm bàn giao *
+Textbox [200]
+Input
+N/A
+Bắt buộc. Văn bản tự do, tối đa 200 ký tự. Check trùng: không.
+16
+Ảnh tài sản
+Image
+Output
+N/A
+Lấy từ Tài sản, trường Hình ảnh; kèm nhãn "MÃ: [Mã tài sản]" ở góc dưới.
+17
+Số Serial
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Số serial.
+18
+Tên tài sản
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Tên tài sản; tag cấu hình chính bên dưới.
+19
+Tình trạng hiện tại
+Label
+Output
+N/A
+Lấy từ Tài sản, trường Tình trạng.
+20
+Phụ kiện kèm theo *
+Textarea [500]
+Input
+N/A
+Bắt buộc. Gợi ý ban đầu lấy từ phụ kiện của tài sản, cho sửa. Tối đa 500 ký tự. Check trùng: không.
+21
+Tiêu đề thẻ Bên giao
+Label
+Output
+BÊN GIAO TÀI SẢN
+Cố định.
+22
+Đại diện bên giao
+Avatar + Label
+Output
+N/A
+Lấy từ Tài sản, trường Người/bộ phận đang sử dụng: họ tên, mã NV, chức danh. Không sửa.
+23
+Bộ phận chuyển đi / Vị trí hiện tại
+Label
+Output
+N/A
+Lấy từ bộ phận của bên giao và Tài sản, trường Vị trí hiện tại. Không sửa.
+24
+Tiêu đề thẻ Bên nhận
+Label
+Output
+BÊN NHẬN TÀI SẢN
+Cố định.
+25
+Đại diện bên nhận
+Avatar + Label
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Người dự kiến tiếp nhận: họ tên, mã NV, chức danh. Không sửa.
+26
+Bộ phận tiếp nhận / Vị trí tiếp nhận
+Label
+Output
+N/A
+Lấy từ Yêu cầu điều chuyển, trường Vị trí nhận. Không sửa.
+27
+Khu vực tải tệp
+Dropzone
+Input
+N/A
+Không bắt buộc. Nhận PDF, DOCX, JPG, PNG, tối đa 20MB mỗi tệp; cho tải nhiều tệp.
+28
+Thẻ tệp đã đính kèm
+Card
+Output
+N/A
+Hiển thị tên tệp, dung lượng, nhãn "Đã tải lên" (xanh); kèm dòng "Đã đính kèm n tệp".
+29
+Nút xem tệp
+Icon button
+Input
+N/A
+Click xem trước tệp.
+30
+Nút xóa tệp
+Icon button
+Input
+N/A
+Click xóa tệp khỏi biên bản.
+31
+"+ Thêm tệp khác"
+Link
+Input
+Thêm tệp khác
+Click mở hộp chọn tệp, cùng quy tắc ô 27.
+32
+Checkbox xác nhận
+Checkbox
+Input
+N/A
+Bắt buộc tích mới được lập biên bản. Mặc định bỏ chọn.
+33
+Hủy bỏ
+Button
+Input
+Hủy bỏ
+Click thoát không lưu, về UI03.
+34
+Lưu nháp
+Button
+Input
+Lưu nháp
+Lưu tạm, không kiểm tra bắt buộc. Yêu cầu giữ "Đã phê duyệt".
+35
+Lập biên bản
+Button
+Input
+Lập biên bản
+Kiểm tra ô 14, 15, 20, 32. Hợp lệ thì lưu biên bản, chuyển "Chờ xác nhận bàn giao". Lỗi thì báo đỏ.
+
+Quy tắc màn hình
+Mã
+Quy tắc
+QT4.1
+Chỉ yêu cầu "Đã phê duyệt" mới lập được biên bản (BR05).
+QT4.2
+Biên bản phải có thông tin tài sản, bên giao, bên nhận, thời gian, địa điểm (BR06).
+QT4.3
+Thông tin khối 02, 03 lấy từ Tài sản và yêu cầu, chỉ đọc.
+QT4.4
+Lập biên bản lỗi thì giữ yêu cầu "Đã phê duyệt" và báo lỗi (E3).
+
+Luồng 5 – Xác nhận bàn giao và tiếp nhận (UI05, HCNS ghi nhận)
+STT
+Tên
+Kiểu đối tượng [Độ dài]
+Input/Output
+Giá trị mặc định
+Mô tả
+7
+Breadcrumb
+Link
+Input
+N/A
+Click cấp đầu về UI01, cấp giữa mở UI03; cấp cuối là trang hiện tại.
+8
+Nút quay lại
+Icon button
+Input
+N/A
+Click về UI01.
+9
+Tiêu đề trang
+Label
+Output
+Ghi nhận xác nhận bàn giao và tiếp nhận
+Cố định.
+10
+Tiêu đề khối tệp
+Label
+Output
+Tệp đính kèm biên bản (Đã ký)
+Cố định.
+11
+Nhãn "Đã ký xác nhận"
+Badge
+Output
+N/A
+Hiện khi biên bản có tệp đã ký.
+12
+Thông tin tệp biên bản
+Card
+Output
+N/A
+Lấy từ tệp đính kèm của biên bản (UI04, ô 28): tên tệp, dung lượng, giờ tải lên.
+13
+Xem trước
+Button
+Input
+Xem trước
+Click xem tệp biên bản.
+14
+Tải xuống
+Button
+Input
+Tải xuống
+Click tải tệp về máy.
+15
+Mã biên bản và mã yêu cầu
+Label
+Output
+N/A
+Lấy từ Biên bản (Số biên bản) và Yêu cầu (Mã yêu cầu), dạng "BB-… (DC-…)". Số biên bản chữ đậm.
+16
+Nhãn trạng thái
+Badge
+Output
+N/A
+Lấy từ trường Trạng thái; màu tím khi "Chờ xác nhận bàn giao".
+17
+Thông tin tài sản
+Label
+Output
+N/A
+Ghép: Tên tài sản (số lượng) • Mã tài sản • Vị trí đi → Vị trí đến.
+18
+Ngày lập biên bản
+Label
+Output
+NGÀY LẬP BIÊN BẢN
+Lấy từ Biên bản, trường Ngày lập, định dạng dd/MM/yyyy HH:mm.
+19
+Banner lưu ý
+Info banner
+Output
+Chỉ hoàn tất điều chuyển khi cả hai bên đã xác nhận
+Nội dung cố định, nền xanh nhạt.
+20
+Tiêu đề thẻ Bên giao
+Label
+Output
+N/A
+Lấy từ Biên bản, trường Bộ phận chuyển đi, dạng "Bên giao (tên bộ phận)".
+21
+Nhãn ký bên giao
+Badge
+Output
+N/A
+Lấy từ trạng thái ký của bên giao trên biên bản.
+22
+Thông tin người giao
+Avatar + Label
+Output
+N/A
+Lấy từ Biên bản: họ tên, chức danh, mã NV của bên giao. Không sửa.
+23
+Checkbox "Đã xác nhận bàn giao trên biên bản"
+Checkbox
+Input
+N/A
+Bắt buộc tích mới hoàn tất. Mặc định bỏ chọn.
+24
+Ghi chú sai lệch bên giao
+Textarea [500]
+Input
+N/A
+Không bắt buộc. Văn bản tự do, tối đa 500 ký tự. Check trùng: không.
+25
+Tiêu đề thẻ Bên nhận
+Label
+Output
+N/A
+Lấy từ Biên bản, trường Bộ phận tiếp nhận, dạng "Bên nhận (tên bộ phận)".
+26
+Nhãn ký bên nhận
+Badge
+Output
+N/A
+Lấy từ trạng thái ký của bên nhận trên biên bản.
+27
+Thông tin người nhận
+Avatar + Label
+Output
+N/A
+Lấy từ Biên bản: họ tên, chức danh, mã NV của bên nhận. Không sửa.
+28
+Checkbox "Đã tiếp nhận và nghiệm thu tài sản"
+Checkbox
+Input
+N/A
+Bắt buộc tích mới hoàn tất. Mặc định bỏ chọn.
+29
+Ghi chú hiện trường bên nhận
+Textarea [500]
+Input
+N/A
+Không bắt buộc. Văn bản tự do, tối đa 500 ký tự. Check trùng: không.
+30
+Hoàn tất điều chuyển
+Button
+Input
+Hoàn tất điều chuyển
+Chỉ bật khi tích cả ô 23 và 28. Cập nhật vị trí, bộ phận, người quản lý mới của tài sản; lưu hồ sơ; chuyển "Hoàn tất".
+
+Quy tắc màn hình
+Mã
+Quy tắc
+QT5.1
+Chỉ hoàn tất khi có xác nhận của cả bên giao và bên nhận (BR07, E4).
+QT5.2
+Chỉ cập nhật vị trí và người quản lý mới sau khi hai bên xác nhận đầy đủ (BR08).
+QT5.3
+Chuyển "Hoàn tất" chỉ khi cập nhật tài sản và lưu hồ sơ thành công (BR10, E5).
+QT5.4
+Có ghi chú sai lệch thì lưu vào biên bản, yêu cầu giữ "Chờ xác nhận bàn giao" cho HCNS xử lý (A5).
+
+Quy tắc màn hình chung (áp dụng cho cả 5 màn)
+Mã
+Quy tắc
+QTC01
+Trạng thái yêu cầu đi theo thứ tự: Chờ tiếp nhận → Chờ bổ sung/Từ chối/Đã phê duyệt → Chờ xác nhận bàn giao → Hoàn tất. Màu trạng thái thống nhất ở mọi màn như UI01 (ô 13).
+QTC02
+Người đề nghị chỉ dùng UI01, UI02. HCNS dùng UI03, UI04, UI05 (BR03). Không đủ quyền thì ẩn nút hoặc chỉ cho xem.
+QTC03
+Mỗi màn xử lý chỉ mở khi yêu cầu đúng trạng thái: UI03 (Chờ tiếp nhận), UI04 (Đã phê duyệt), UI05 (Chờ xác nhận bàn giao).
+QTC04
+Trường có dấu * bắt buộc nhập. Ô lỗi hiển thị viền đỏ, nền hồng, thông báo đỏ ngay dưới ô; khi lỗi thì focus vào ô lỗi đầu tiên.
+QTC05
+Ô tự điền từ dữ liệu có sẵn (nền xám) không cho sửa. Dữ liệu tài sản đối chiếu với sổ theo dõi (BR02).
+QTC06
+Textarea có bộ đếm "x/500" và không cho nhập quá độ dài tối đa.
+QTC07
+Tệp đính kèm sai định dạng hoặc quá dung lượng thì báo lỗi, không tải lên.
+QTC08
+Nút đang xử lý thì khóa để tránh bấm đúp. Lỗi hệ thống thì báo lỗi, không hiện thông báo thành công (E1) và giữ nguyên dữ liệu đã nhập.
+QTC09
+Mọi thay đổi trạng thái đều ghi lại người thao tác, thời gian, lý do và gửi thông báo đến người liên quan (BR09).
+QTC10
+Định dạng hiển thị thống nhất: ngày giờ một kiểu duy nhất, nhân sự "Họ tên (Mã NV)", tiền "74.500.000 VNĐ".
+
+
+9. Danh sách đối tượng cần quản lý
+STT
+Tên đối tượng quản lý
+Thông tin mô tả
+Các yếu tố ảnh hưởng
+Nhu cầu xây dựng
+Ghi chú
+Số lượng lớp, bảng dữ liệu
+Kiểu dữ liệu
+Số lượng trường thông tin
+Số lượng quan hệ
+Kế thừa hoàn toàn
+Kế thừa một phần
+Xây dựng mới
+Không gian
+Phi không gian
+1
+Tài sản
+Lưu thông tin định danh, tên tài sản, serial, cấu hình, tình trạng, vị trí hiện tại, bộ phận sử dụng, người quản lý, nguyên giá và phụ kiện.
+1
+X
+—
+12
+3
+—
+—
+X
+Đối tượng dữ liệu gốc; đối chiếu từ sổ theo dõi tài sản.
+2
+Yêu cầu điều chuyển
+Lưu mã yêu cầu, tài sản, người đề nghị, lý do, vị trí nhận, người dự kiến tiếp nhận, ngày gửi, trạng thái và lý do bổ sung/từ chối.
+1
+X
+—
+12
+5
+—
+—
+X
+Phục vụ UI01, UI02, UI03; mã dạng DC-YYYY-NNNN.
+3
+Nhân sự
+Lưu mã nhân viên, họ tên, chức danh, phòng ban/bộ phận và trạng thái làm việc để xác định người đề nghị, bên giao, bên nhận, người duyệt.
+1
+X
+—
+6
+4
+—
+—
+X
+Có thể liên kết nguồn dữ liệu nhân sự sẵn có nếu tổ chức đã có.
+4
+Bộ phận/Vị trí
+Lưu mã bộ phận hoặc địa điểm, tên, đơn vị quản lý và trạng thái sử dụng; dùng cho vị trí hiện tại và vị trí nhận.
+1
+X
+—
+5
+2
+—
+—
+X
+Danh mục dùng chung; vị trí nhận phải khác vị trí hiện tại.
+5
+Biên bản bàn giao
+Lưu số biên bản, mã yêu cầu, thời gian, địa điểm, phụ kiện kèm theo, người lập, trạng thái xác nhận và ghi chú sai lệch.
+1
+X
+—
+10
+3
+—
+—
+X
+Chỉ lập từ yêu cầu đã phê duyệt.
+6
+Tệp đính kèm
+Lưu tên tệp, loại tệp, dung lượng, đường dẫn, thời gian tải lên và đối tượng hồ sơ liên quan.
+1
+X
+—
+6
+2
+—
+—
+X
+Quản lý tệp của yêu cầu và biên bản; kiểm tra định dạng/dung lượng.
+7
+Xác nhận bàn giao
+Lưu xác nhận của bên giao và bên nhận, người xác nhận, thời gian xác nhận, trạng thái và ghi chú tình trạng/sai lệch.
+1
+X
+—
+7
+2
+—
+—
+X
+Có thể triển khai thành hai bản ghi xác nhận gắn với một biên bản.
+8
+Lịch sử điều chuyển
+Lưu mã yêu cầu, tài sản, vị trí trước/sau, người quản lý trước/sau, thời điểm, người thao tác và kết quả điều chuyển.
+1
+X
+—
+8
+2
+—
+—
+X
+Phục vụ tra cứu lịch sử và kiểm toán; chỉ ghi nhận khi phát sinh thay đổi.
+
+10. Mối quan hệ giữa các đối tượng cần quản lý
+Thực ra nó là mối quan hệ giữa các entity trong database
+
+
+
+
+STT
+Tên lớp, bảng dữ liệu
+Kiểu dữ liệu
+Mô tả quan hệ
+Tên lớp, bảng dữ liệu
+ 
+Không gian
+Phi không gian
+
+
+
+
+1
+Yêu cầu điều chuyển
+X
+—
+Nhiều yêu cầu có thể gắn với một tài sản theo thời gian; mỗi yêu cầu chỉ tham chiếu một tài sản.
+Tài sản
+1:N
+ 
+ 
+2
+Yêu cầu điều chuyển
+X
+—
+Mỗi yêu cầu do một nhân sự tạo; một nhân sự có thể tạo nhiều yêu cầu.
+Nhân sự
+N:1
+ 
+ 
+3
+Yêu cầu điều chuyển
+X
+—
+Mỗi yêu cầu có một vị trí nhận; một vị trí có thể là nơi nhận của nhiều yêu cầu.
+Bộ phận/Vị trí
+N:1
+ 
+ 
+4
+Yêu cầu điều chuyển
+X
+—
+Mỗi yêu cầu có một người dự kiến tiếp nhận; một nhân sự có thể tiếp nhận nhiều tài sản.
+Nhân sự
+N:1
+ 
+ 
+5
+Biên bản bàn giao
+X
+—
+Mỗi yêu cầu đã phê duyệt có thể có một biên bản bàn giao chính thức.
+Yêu cầu điều chuyển
+1:1
+ 
+ 
+6
+Biên bản bàn giao
+X
+—
+Một biên bản có thể đính kèm nhiều tệp; mỗi tệp thuộc một hồ sơ liên quan.
+Tệp đính kèm
+1:N
+ 
+ 
+7
+Xác nhận bàn giao
+X
+—
+Một biên bản cần xác nhận của bên giao và bên nhận; mỗi xác nhận thuộc một biên bản.
+Biên bản bàn giao
+N:1
+ 
+ 
+8
+Lịch sử điều chuyển
+X
+—
+Một tài sản có thể phát sinh nhiều bản ghi lịch sử điều chuyển.
+Tài sản
+1:N
+ 
+ 
+9
+Lịch sử điều chuyển
+X
+—
+Mỗi bản ghi lịch sử gắn với yêu cầu điều chuyển tương ứng.
+Yêu cầu điều chuyển
+N:1
+ 
+ 
+10
+Biên bản bàn giao
+X
+—
+Bên giao và bên nhận được tham chiếu từ thông tin tài sản/yêu cầu và danh mục nhân sự.
+Nhân sự
+N:1
+ 
+ 
+
+11. Yêu cầu kết nối và chia sẻ thông tin
+Luồng dữ liệu nội bộ đi trong các phân hệ, chức năng
+Từ chức năng
+Đến chức năng
+Dữ liệu
+Điều kiện kích hoạt
+Kết quả, xử lý lỗi
+Tạo và gửi yêu cầu (UI02)
+Theo dõi yêu cầu (UI01)
+Mã yêu cầu, mã tài sản, người đề nghị, vị trí nhận, người tiếp nhận, lý do, ngày gửi, trạng thái
+Người đề nghị gửi yêu cầu hợp lệ; đủ trường bắt buộc và lưu thành công
+Hiển thị yêu cầu mới ở trạng thái “Chờ tiếp nhận”. Nếu lưu lỗi, thông báo lỗi và không báo gửi thành công.
+Theo dõi yêu cầu (UI01)
+Kiểm tra hồ sơ và điều kiện điều chuyển (UI03)
+Mã yêu cầu và thông tin chi tiết yêu cầu/tài sản
+HCNS chọn yêu cầu đang ở trạng thái “Chờ tiếp nhận”
+Mở chi tiết để kiểm tra. Nếu không tìm thấy tài sản hoặc dữ liệu không khớp, yêu cầu HCNS xác minh và không cho phê duyệt.
+Kiểm tra hồ sơ và điều kiện điều chuyển (UI03)
+Tạo và gửi yêu cầu / Theo dõi yêu cầu (UI02/UI01)
+Kết quả kiểm tra, lý do bổ sung hoặc từ chối, người xử lý, thời gian
+Hồ sơ thiếu thông tin hoặc tài sản không đủ điều kiện
+Thiếu hồ sơ: chuyển “Chờ bổ sung” và gửi lý do cho người đề nghị. Không đủ điều kiện: chuyển “Từ chối” và lưu lý do.
+Kiểm tra hồ sơ và phê duyệt (UI03)
+Lập biên bản bàn giao (UI04)
+Mã yêu cầu đã duyệt, thông tin tài sản, bên giao, bên nhận, vị trí đi/đến
+HCNS phê duyệt khi hồ sơ đầy đủ và tài sản đủ điều kiện
+Chuyển trạng thái “Đã phê duyệt”, cho phép lập biên bản. Nếu chưa phê duyệt thì không cho mở luồng lập biên bản.
+Lập biên bản bàn giao (UI04)
+Ghi nhận xác nhận bàn giao và tiếp nhận (UI05)
+Số biên bản, mã yêu cầu, thời gian/địa điểm bàn giao, phụ kiện, tệp đính kèm, thông tin hai bên
+Biên bản hợp lệ và được lưu thành công
+Chuyển yêu cầu sang “Chờ xác nhận bàn giao”. Nếu lưu biên bản lỗi, giữ trạng thái “Đã phê duyệt” và thông báo lỗi.
+Ghi nhận xác nhận bàn giao và tiếp nhận (UI05)
+Cập nhật thông tin tài sản
+Kết quả xác nhận của bên giao và bên nhận, ghi chú sai lệch, vị trí và người quản lý mới
+Cả hai bên xác nhận đầy đủ và không còn sai lệch chưa xử lý
+Cho phép cập nhật vị trí, bộ phận sử dụng và người quản lý. Nếu thiếu xác nhận hoặc có sai lệch, giữ “Chờ xác nhận bàn giao”.
+Cập nhật thông tin tài sản
+Lưu hồ sơ và lịch sử điều chuyển
+Thông tin tài sản sau điều chuyển, vị trí/bộ phận/người quản lý mới, thời gian cập nhật
+Bàn giao và tiếp nhận đã được xác nhận đầy đủ
+Cập nhật sổ tài sản và tạo bản ghi lịch sử. Nếu cập nhật thất bại, không chuyển yêu cầu sang “Hoàn tất”.
+Lưu hồ sơ và lịch sử điều chuyển
+Theo dõi yêu cầu (UI01)
+Hồ sơ yêu cầu, biên bản, tệp đính kèm, lịch sử, trạng thái cuối
+Cập nhật tài sản và lưu hồ sơ thành công
+Chuyển trạng thái “Hoàn tất” và hiển thị kết quả trên UI01. Nếu lưu hồ sơ lỗi, ghi nhận lỗi và giữ trạng thái chưa hoàn tất.
+Mọi chức năng xử lý trạng thái
+Thông báo hệ thống
+Mã yêu cầu, trạng thái mới, người thao tác, thời gian, lý do xử lý
+Có thay đổi trạng thái hoặc phát sinh yêu cầu bổ sung/từ chối
+Gửi thông báo tới người liên quan và lưu lịch sử thay đổi; nếu gửi thông báo lỗi thì không làm mất dữ liệu nghiệp vụ đã lưu.
+
+ 
+

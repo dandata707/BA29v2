@@ -1,0 +1,675 @@
+<!DOCTYPE html><html lang="vi" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tạo phiếu yêu cầu cấp phát - AssetFlow</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#1d4ed8',
+              600: '#1877f2',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              primary: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    /* Custom styling for precise matches */
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      background: transparent;
+      bottom: 0;
+      color: transparent;
+      cursor: pointer;
+      height: auto;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: auto;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex antialiased selection:bg-blue-100 selection:text-blue-700">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-white border-r border-slate-200 flex flex-col justify-between shrink-0 fixed inset-y-0 left-0 z-30" data-purpose="left-sidebar">
+<!-- Top Branding & Navigation -->
+<div class="flex flex-col">
+<!-- App Brand Logo -->
+<div class="px-6 py-5 flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-cyan-400 flex items-center justify-center shadow-md shadow-blue-500/20 text-white font-bold text-lg">
+<svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+</svg>
+</div>
+<div>
+<div class="font-bold text-slate-800 text-lg leading-tight tracking-tight">AssetFlow</div>
+<div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Quản lý tài sản</div>
+</div>
+</div>
+<!-- Section Label -->
+<div class="px-6 mt-4 mb-2">
+<span class="text-[11px] font-bold text-slate-400 tracking-wider uppercase">Không gian làm việc</span>
+</div>
+<!-- Navigation Menu -->
+<nav class="px-3 space-y-1">
+<!-- Tổng quan -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors font-medium text-sm" href="javascript:void(0)">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+          Tổng quan
+        </a>
+<!-- Tài sản của tôi -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors font-medium text-sm" href="javascript:void(0)">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+          Tài sản của tôi
+        </a>
+<!-- Cấp phát tài sản (Active accordion) -->
+<div class="space-y-1">
+<button class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg bg-blue-50/70 text-blue-600 font-medium text-sm transition-colors" type="button">
+<span class="flex items-center gap-3">
+<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+              Cấp phát tài sản
+            </span>
+<svg class="w-4 h-4 text-blue-600 transition-transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- Sub menu -->
+<div class="pl-11 pr-2 py-1">
+<a class="block py-1.5 text-sm font-medium text-blue-600 hover:text-blue-700" href="javascript:void(0)">
+              Bàn giao tài sản
+            </a>
+</div>
+</div>
+<!-- Thu hồi tài sản -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors font-medium text-sm" href="javascript:void(0)">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.03 8.03 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+          Thu hồi tài sản
+        </a>
+<!-- Điều chuyển tài sản -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors font-medium text-sm" href="javascript:void(0)">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+          Điều chuyển tài sản
+        </a>
+<!-- Báo hỏng / Bảo trì -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors font-medium text-sm" href="javascript:void(0)">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+          Báo hỏng / Bảo trì
+        </a>
+</nav>
+</div>
+<!-- Bottom Help & User Profile -->
+<div class="p-4 border-t border-slate-200">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium mb-2" href="javascript:void(0)">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+        Trợ giúp
+      </a>
+<!-- User Info Card -->
+<div class="flex items-center justify-between pt-2 border-t border-slate-100">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-blue-100 text-blue-600 font-semibold flex items-center justify-center text-xs">
+            NA
+          </div>
+<div>
+<div class="text-xs font-bold text-slate-800">Nguyễn Minh Anh</div>
+<div class="text-[11px] text-slate-400">Nhân viên</div>
+</div>
+</div>
+<button aria-label="Tùy chọn tài khoản" class="text-slate-400 hover:text-slate-600" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- BEGIN: TopBar -->
+<header class="bg-white border-b border-slate-200 sticky top-0 z-20 px-8 py-3.5 flex items-center justify-between">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+<a aria-label="Trang chủ" class="text-slate-400 hover:text-blue-600 transition-colors" href="javascript:void(0)">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+<span class="text-slate-300">/</span>
+<a class="hover:text-blue-600 transition-colors" href="javascript:void(0)">Cấp phát tài sản</a>
+<span class="text-slate-300">/</span>
+<span class="text-slate-700 font-semibold">Tạo phiếu yêu cầu</span>
+</nav>
+<!-- Right Actions (Notification + User Avatar) -->
+<div class="flex items-center gap-4">
+<button aria-label="Thông báo" class="relative text-slate-500 hover:text-slate-700 p-1" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold flex items-center justify-center text-xs ring-1 ring-blue-200">
+          NA
+        </div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- Form Container -->
+<div class="flex-1 p-8 pb-32 max-w-6xl mx-auto w-full">
+<!-- Back Link & Page Title Header -->
+<div class="mb-6">
+<a class="inline-flex items-center gap-2 text-xs font-semibold text-blue-600 hover:text-blue-700 mb-2" href="javascript:void(0)">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+          Quay lại danh sách
+        </a>
+<div class="flex items-end justify-between">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 tracking-tight">Tạo phiếu yêu cầu cấp phát</h1>
+<p class="text-xs text-slate-500 mt-1">Điền thông tin để gửi yêu cầu cấp phát tài sản.</p>
+</div>
+<div class="text-xs text-rose-500 font-medium">* Thông tin bắt buộc</div>
+</div>
+</div>
+<!-- Main Form Sheet -->
+<form class="bg-white rounded-xl shadow-sm border border-slate-200/80 p-8 space-y-8" id="assetRequestForm" onsubmit="event.preventDefault();">
+<!-- BEGIN: Section Thông tin người lập -->
+<section data-purpose="requester-info">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-sm font-bold text-slate-800">Thông tin người lập</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Tự động điền • Chỉ đọc</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block text-xs text-slate-500 mb-1.5">Họ tên</label>
+<input class="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-slate-700 font-medium cursor-not-allowed focus:ring-0 focus:outline-none" readonly="" type="text" value="Nguyễn Minh Anh">
+</div>
+<div>
+<label class="block text-xs text-slate-500 mb-1.5">Mã nhân viên</label>
+<input class="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-slate-700 font-medium cursor-not-allowed focus:ring-0 focus:outline-none" readonly="" type="text" value="NV-0025">
+</div>
+<div>
+<label class="block text-xs text-slate-500 mb-1.5">Phòng ban</label>
+<input class="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-slate-700 font-medium cursor-not-allowed focus:ring-0 focus:outline-none" readonly="" type="text" value="Nhân sự">
+</div>
+<div>
+<label class="block text-xs text-slate-500 mb-1.5">Chức danh</label>
+<input class="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-slate-700 font-medium cursor-not-allowed focus:ring-0 focus:outline-none" readonly="" type="text" value="Chuyên viên nhân sự">
+</div>
+<div>
+<label class="block text-xs text-slate-500 mb-1.5">Mã phiếu</label>
+<input class="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-slate-700 font-medium cursor-not-allowed focus:ring-0 focus:outline-none" readonly="" type="text" value="CP-2026-30">
+</div>
+<div>
+<label class="block text-xs text-slate-500 mb-1.5">Ngày lập</label>
+<input class="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-slate-700 font-medium cursor-not-allowed focus:ring-0 focus:outline-none" readonly="" type="text" value="20/10/2026">
+</div>
+</div>
+</section>
+<!-- END: Section Thông tin người lập -->
+<!-- BEGIN: Section Loại yêu cầu -->
+<section data-purpose="request-type">
+<label class="block text-sm font-bold text-slate-800 mb-3">
+            Loại yêu cầu <span class="text-rose-500">*</span>
+</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Cho cá nhân card -->
+<label class="relative flex items-center gap-3.5 p-4 rounded-xl border border-slate-200 hover:border-slate-300 bg-white cursor-pointer transition-all duration-150 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50/20 shadow-sm">
+<input class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300" name="request_type" onchange="toggleRequestType(this.value)" type="radio" value="personal">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-slate-800">Cho cá nhân</span>
+<span class="text-[11px] text-slate-400 mt-0.5">Yêu cầu tài sản cho bản thân</span>
+</div>
+</label>
+<!-- Cho nhân viên mới card -->
+<label class="relative flex items-center gap-3.5 p-4 rounded-xl border-2 border-blue-500 bg-blue-50/20 cursor-pointer transition-all duration-150 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50/20 shadow-sm">
+<input checked="" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300" name="request_type" onchange="toggleRequestType(this.value)" type="radio" value="new_employee">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-slate-800">Cho nhân viên mới</span>
+<span class="text-[11px] text-slate-400 mt-0.5">Đề nghị cấp phát cho nhân sự mới</span>
+</div>
+</label>
+</div>
+</section>
+<!-- END: Section Loại yêu cầu -->
+<!-- BEGIN: Section Người nhận tài sản -->
+<section data-purpose="recipient-info">
+<h2 class="text-sm font-bold text-slate-800 mb-4">Người nhận tài sản</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="">
+<label class="block text-xs text-slate-500 mb-1.5">
+                Họ tên <span class="text-rose-500">*</span>
+</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3.5 py-2.5 text-slate-800 font-normal" id="recipientName" type="text" value="Trần Hoàng Nam">
+</div>
+<div class="">
+<label class="block text-xs text-slate-500 mb-1.5">
+                Mã nhân viên
+</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3.5 py-2.5 text-slate-800 font-normal placeholder-slate-400" id="recipientCode" placeholder="Nhập mã nhân viên" type="text" value="NV-0089">
+</div>
+<div class="">
+<label class="block text-xs text-slate-500 mb-1.5">Chức danh <span class="text-rose-500">*</span>
+</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3.5 py-2.5 text-slate-800 font-normal" id="recipientRole" type="text" value="Nhân viên kinh doanh">
+</div>
+<div class="">
+<label class="block text-xs text-slate-500 mb-1.5">
+                Phòng ban <span class="text-rose-500">*</span>
+</label>
+<div class="relative">
+<select class="w-full text-xs rounded-lg border-rose-500 focus:border-rose-500 focus:ring-1 focus:ring-rose-500 px-3.5 py-2.5 text-slate-600 appearance-none bg-white font-normal pr-9" id="departmentSelect" onchange="validateDept()">
+<option selected="" value="">Chọn phòng ban</option>
+<option value="KD">Phòng Kinh Doanh</option>
+<option value="KT">Phòng Kế Toán</option>
+<option value="IT">Phòng Công Nghệ Thông Tin</option>
+<option value="MKT">Phòng Marketing</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-blue-600">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<p class="text-[11px] text-rose-500 mt-1" id="deptError">Vui lòng chọn phòng ban</p>
+</div>
+<div class="">
+<label class="block text-xs text-slate-500 mb-1.5">
+                Ngày bắt đầu làm việc <span class="text-rose-500">*</span>
+</label>
+<div class="relative">
+<input class="w-full text-xs rounded-lg border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3.5 py-2.5 text-slate-800 font-normal pr-9" id="startDatePicker" type="text" value="25/10/2026">
+<div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+</div>
+</div></div>
+</section>
+<!-- END: Section Người nhận tài sản -->
+<!-- BEGIN: Section Tài sản cần cấp -->
+<section data-purpose="assets-list-section">
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-sm font-bold text-slate-800">Tài sản cần cấp</h2>
+<span class="text-xs text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full font-medium" id="assetCountBadge">2 tài sản</span>
+</div><div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4" data-purpose="asset-allocation-mode"><label class="relative flex items-center gap-3.5 p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white cursor-pointer transition-all duration-150 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50/20 shadow-sm"><input class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300" name="allocation_mode" type="radio" value="standard"><div class="flex flex-col"><span class="text-xs font-semibold text-slate-800">Chọn theo định mức</span><span class="text-[11px] text-slate-400 mt-0.5">Cấp phát theo tiêu chuẩn/định mức vị trí phòng ban</span></div></label><label class="relative flex items-center gap-3.5 p-3.5 rounded-xl border-2 border-blue-500 bg-blue-50/20 cursor-pointer transition-all duration-150 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50/20 shadow-sm"><input checked="" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300" name="allocation_mode" type="radio" value="custom"><div class="flex flex-col"><span class="text-xs font-semibold text-slate-800">Yêu cầu mới</span><span class="text-[11px] text-slate-400 mt-0.5">Tùy chọn danh sách tài sản phát sinh theo nhu cầu</span></div></label></div>
+<!-- Table Container -->
+<div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+<div class="grid grid-cols-12 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-slate-500 border-b border-slate-200">
+<div class="col-span-3">Loại tài sản <span class="text-rose-500">*</span></div>
+<div class="col-span-4">Mô tả</div>
+<div class="col-span-2 text-center">Số lượng <span class="text-rose-500">*</span></div>
+<div class="col-span-2">Ghi chú</div>
+<div class="col-span-1 text-center"></div>
+</div>
+<!-- Assets Row List -->
+<div class="divide-y divide-slate-100" id="assetRowsList">
+<!-- Item 1 -->
+<div class="grid grid-cols-12 items-center px-4 py-3 gap-3 asset-row">
+<div class="col-span-3 relative">
+<select class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 pl-3 pr-7 text-slate-700 bg-white">
+<option selected="">Máy tính xách tay</option>
+<option>Màn hình</option>
+<option>Bàn phím &amp; Chuột</option>
+<option>Tai nghe</option>
+</select>
+</div>
+<div class="col-span-4">
+<input class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 px-3 text-slate-700 placeholder-slate-400" placeholder="Chi tiết cấu hình..." type="text" value="RAM 16GB, SSD 512GB">
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<div class="inline-flex items-center border border-slate-200 rounded-lg overflow-hidden">
+<button aria-label="Giảm" class="px-2.5 py-1.5 text-slate-500 hover:bg-slate-100 transition-colors font-bold text-xs" onclick="decreaseQty(this)" type="button">-</button>
+<input class="w-8 text-center text-xs font-semibold border-none py-1.5 px-0 text-slate-800 bg-transparent focus:ring-0" readonly="" type="text" value="1">
+<button aria-label="Tăng" class="px-2.5 py-1.5 text-slate-500 hover:bg-slate-100 transition-colors font-bold text-xs" onclick="increaseQty(this)" type="button">+</button>
+</div>
+</div>
+<div class="col-span-2">
+<input class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 px-3 text-slate-700 placeholder-slate-400" placeholder="Nhập ghi chú" type="text" value="Kèm bộ sạc">
+</div>
+<div class="col-span-1 flex justify-center">
+<button class="text-slate-400 hover:text-rose-500 transition-colors p-1" onclick="deleteRow(this)" title="Xóa tài sản" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="grid grid-cols-12 items-center px-4 py-3 gap-3 asset-row">
+<div class="col-span-3 relative">
+<select class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 pl-3 pr-7 text-slate-700 bg-white">
+<option>Máy tính xách tay</option>
+<option selected="">Màn hình</option>
+<option>Bàn phím &amp; Chuột</option>
+<option>Tai nghe</option>
+</select>
+</div>
+<div class="col-span-4">
+<input class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 px-3 text-slate-700 placeholder-slate-400" placeholder="Chi tiết cấu hình..." type="text" value="24 inch, Full HD">
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<div class="inline-flex items-center border border-slate-200 rounded-lg overflow-hidden">
+<button aria-label="Giảm" class="px-2.5 py-1.5 text-slate-500 hover:bg-slate-100 transition-colors font-bold text-xs" onclick="decreaseQty(this)" type="button">-</button>
+<input class="w-8 text-center text-xs font-semibold border-none py-1.5 px-0 text-slate-800 bg-transparent focus:ring-0" readonly="" type="text" value="1">
+<button aria-label="Tăng" class="px-2.5 py-1.5 text-slate-500 hover:bg-slate-100 transition-colors font-bold text-xs" onclick="increaseQty(this)" type="button">+</button>
+</div>
+</div>
+<div class="col-span-2">
+<input class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 px-3 text-slate-700 placeholder-slate-400" placeholder="Nhập ghi chú" type="text" value="">
+</div>
+<div class="col-span-1 flex justify-center">
+<button class="text-slate-400 hover:text-rose-500 transition-colors p-1" onclick="deleteRow(this)" title="Xóa tài sản" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Asset Button & Hint -->
+<div class="mt-3.5 flex items-center gap-4">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 border border-blue-600 rounded-lg text-xs font-semibold text-blue-600 bg-white hover:bg-blue-50 transition-colors" onclick="addNewAssetRow()" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+              Thêm tài sản
+            </button>
+<span class="text-[11px] text-slate-400">Số lượng phải là số nguyên dương.</span>
+</div>
+</section>
+<!-- END: Section Tài sản cần cấp -->
+<!-- BEGIN: Section Lý do & thời gian -->
+<section data-purpose="reason-and-deadline">
+<h2 class="text-sm font-bold text-slate-800 mb-4">Lý do &amp; thời gian</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+<!-- Lý do yêu cầu textarea (2 cols) -->
+<div class="md:col-span-2">
+<label class="block text-xs text-slate-500 mb-1.5">
+                Lý do yêu cầu <span class="text-rose-500">*</span>
+</label>
+<textarea class="w-full text-xs rounded-lg border-rose-500 focus:border-rose-500 focus:ring-1 focus:ring-rose-500 p-3 text-slate-800 placeholder-slate-400 resize-y" id="reasonTextarea" oninput="validateReason()" placeholder="Nhập lý do yêu cầu cấp phát tài sản" rows="3"></textarea>
+<p class="text-[11px] text-rose-500 mt-1" id="reasonError">Vui lòng nhập lý do yêu cầu</p>
+</div>
+<!-- Ngày cần sử dụng date (1 col) -->
+<div>
+<label class="block text-xs text-slate-500 mb-1.5">
+                Ngày cần sử dụng <span class="text-rose-500">*</span>
+</label>
+<div class="relative">
+<input class="w-full text-xs rounded-lg border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 px-3.5 py-2.5 text-slate-800 font-normal pr-9" id="targetDatePicker" type="text" value="25/10/2026">
+<div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section Lý do & thời gian -->
+</form>
+</div>
+<!-- BEGIN: Bottom Fixed Action Bar -->
+<footer class="fixed bottom-0 right-0 left-64 bg-white/95 backdrop-blur-sm border-t border-slate-200 px-8 py-3.5 flex items-center justify-between z-30 shadow-lg" data-purpose="form-actions-bar">
+<div class="text-xs text-blue-600 font-normal">
+        Vui lòng kiểm tra thông tin trước khi gửi phiếu.
+      </div>
+<div class="flex items-center gap-3">
+<!-- Nút Lưu nháp -->
+<button class="px-5 py-2 rounded-lg border border-blue-600 text-xs font-semibold text-blue-600 bg-white hover:bg-blue-50/70 transition-all active:scale-95 shadow-sm" onclick="saveDraft()" type="button">
+          Lưu nháp
+        </button>
+<!-- Nút Gửi phiếu -->
+<button class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-all active:scale-95 shadow-sm shadow-blue-500/25" onclick="submitForm()" type="button">
+<svg class="w-4 h-4 -rotate-45 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+          Gửi phiếu
+        </button>
+</div>
+</footer>
+<!-- END: Bottom Fixed Action Bar -->
+<!-- Toast Notification Box -->
+<div class="fixed bottom-20 right-8 bg-slate-900 text-white text-xs px-4 py-3 rounded-lg shadow-xl transform translate-y-10 opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2.5" id="toastMessage">
+<svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" id="toastIcon" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span id="toastText" class="">Đã lưu bản nháp thành công!</span>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- JavaScript Interactivity -->
+<script data-purpose="form-interactivity">
+    // Cập nhật số lượng tài sản trên badge
+    function updateBadgeCount() {
+      const rows = document.querySelectorAll('.asset-row');
+      const badge = document.getElementById('assetCountBadge');
+      badge.textContent = `${rows.length} tài sản`;
+    }
+
+    // Tăng số lượng stepper
+    function increaseQty(btn) {
+      const input = btn.previousElementSibling;
+      let val = parseInt(input.value) || 1;
+      input.value = val + 1;
+    }
+
+    // Giảm số lượng stepper
+    function decreaseQty(btn) {
+      const input = btn.nextElementSibling;
+      let val = parseInt(input.value) || 1;
+      if (val > 1) {
+        input.value = val - 1;
+      }
+    }
+
+    // Xóa một dòng tài sản
+    function deleteRow(btn) {
+      const row = btn.closest('.asset-row');
+      const allRows = document.querySelectorAll('.asset-row');
+      if (allRows.length > 1) {
+        row.remove();
+        updateBadgeCount();
+        showToast('Đã xóa 1 mục tài sản.');
+      } else {
+        showToast('Cần ít nhất một tài sản trong phiếu yêu cầu!', true);
+      }
+    }
+
+    // Thêm một dòng tài sản mới
+    function addNewAssetRow() {
+      const list = document.getElementById('assetRowsList');
+      const newRow = document.createElement('div');
+      newRow.className = 'grid grid-cols-12 items-center px-4 py-3 gap-3 asset-row animate-fade-in';
+      newRow.innerHTML = `
+        <div class="col-span-3 relative">
+          <select class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 pl-3 pr-7 text-slate-700 bg-white">
+            <option>Máy tính xách tay</option>
+            <option>Màn hình</option>
+            <option selected>Bàn phím & Chuột</option>
+            <option>Tai nghe</option>
+          </select>
+        </div>
+        <div class="col-span-4">
+          <input type="text" placeholder="Chi tiết cấu hình..." class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 px-3 text-slate-700 placeholder-slate-400">
+        </div>
+        <div class="col-span-2 flex items-center justify-center">
+          <div class="inline-flex items-center border border-slate-200 rounded-lg overflow-hidden">
+            <button type="button" onclick="decreaseQty(this)" class="px-2.5 py-1.5 text-slate-500 hover:bg-slate-100 transition-colors font-bold text-xs">-</button>
+            <input type="text" value="1" readonly class="w-8 text-center text-xs font-semibold border-none py-1.5 px-0 text-slate-800 bg-transparent focus:ring-0">
+            <button type="button" onclick="increaseQty(this)" class="px-2.5 py-1.5 text-slate-500 hover:bg-slate-100 transition-colors font-bold text-xs">+</button>
+          </div>
+        </div>
+        <div class="col-span-2">
+          <input type="text" placeholder="Nhập ghi chú" class="w-full text-xs rounded-lg border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 py-2 px-3 text-slate-700 placeholder-slate-400">
+        </div>
+        <div class="col-span-1 flex justify-center">
+          <button type="button" onclick="deleteRow(this)" class="text-slate-400 hover:text-rose-500 transition-colors p-1" title="Xóa tài sản">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+            </svg>
+          </button>
+        </div>
+      `;
+      list.appendChild(newRow);
+      updateBadgeCount();
+      showToast('Đã thêm 1 dòng tài sản.');
+    }
+
+    // Tự động clear validation phòng ban khi đã chọn
+    function validateDept() {
+      const select = document.getElementById('departmentSelect');
+      const err = document.getElementById('deptError');
+      if (select.value !== "") {
+        select.classList.remove('border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500');
+        select.classList.add('border-slate-300', 'focus:border-blue-500', 'focus:ring-blue-500');
+        err.classList.add('hidden');
+      } else {
+        select.classList.add('border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500');
+        select.classList.remove('border-slate-300', 'focus:border-blue-500', 'focus:ring-blue-500');
+        err.classList.remove('hidden');
+      }
+    }
+
+    // Tự động clear validation lý do khi có gõ text
+    function validateReason() {
+      const textarea = document.getElementById('reasonTextarea');
+      const err = document.getElementById('reasonError');
+      if (textarea.value.trim().length > 0) {
+        textarea.classList.remove('border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500');
+        textarea.classList.add('border-slate-300', 'focus:border-blue-500', 'focus:ring-blue-500');
+        err.classList.add('hidden');
+      } else {
+        textarea.classList.add('border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500');
+        textarea.classList.remove('border-slate-300', 'focus:border-blue-500', 'focus:ring-blue-500');
+        err.classList.remove('hidden');
+      }
+    }
+
+    // Đổi kiểu Loại yêu cầu
+    function toggleRequestType(type) {
+      if (type === 'personal') {
+        document.getElementById('recipientName').value = 'Nguyễn Minh Anh';
+        document.getElementById('recipientRole').value = 'Chuyên viên nhân sự';
+      } else {
+        document.getElementById('recipientName').value = 'Trần Hoàng Nam';
+        document.getElementById('recipientRole').value = 'Nhân viên kinh doanh';
+      }
+    }
+
+    // Hiển thị toast thông báo
+    let toastTimeout;
+    function showToast(text, isError = false) {
+      const toast = document.getElementById('toastMessage');
+      const toastText = document.getElementById('toastText');
+      const icon = document.getElementById('toastIcon');
+
+      clearTimeout(toastTimeout);
+      toastText.textContent = text;
+
+      if (isError) {
+        icon.classList.remove('text-emerald-400');
+        icon.classList.add('text-rose-400');
+      } else {
+        icon.classList.add('text-emerald-400');
+        icon.classList.remove('text-rose-400');
+      }
+
+      toast.classList.remove('translate-y-10', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-10', 'opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    // Lưu nháp action
+    function saveDraft() {
+      showToast('Đã lưu bản nháp thành công!');
+    }
+
+    // Gửi phiếu action
+    function submitForm() {
+      const deptSelect = document.getElementById('departmentSelect');
+      const reason = document.getElementById('reasonTextarea');
+
+      let isValid = true;
+
+      if (!deptSelect.value) {
+        deptSelect.classList.add('border-rose-500');
+        document.getElementById('deptError').classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!reason.value.trim()) {
+        reason.classList.add('border-rose-500');
+        document.getElementById('reasonError').classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showToast('Vui lòng hoàn thiện các trường bắt buộc!', true);
+      } else {
+        showToast('Phiếu yêu cầu cấp phát đã được gửi duyệt thành công!');
+      }
+    }
+  </script>
+
+
+</body></html>

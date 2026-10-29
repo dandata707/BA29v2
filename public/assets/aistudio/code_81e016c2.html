@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AssetFlow - Biên bản bàn giao tài sản</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-scrollbars">
+    /* Tùy chỉnh thanh cuộn nhẹ nhàng phù hợp Enterprise App */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-[#f0f4f9] font-sans text-slate-700 antialiased h-screen flex overflow-hidden">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 bg-white border-r border-slate-200 flex flex-col justify-between shrink-0 select-none" data-purpose="main-navigation">
+<div class="flex flex-col h-full overflow-y-auto">
+<!-- Logo thương hiệu AssetFlow -->
+<div class="px-6 py-5 flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-cyan-400 flex items-center justify-center shadow-md shadow-blue-500/20">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tight text-slate-900 leading-none">AssetFlow</h1>
+<span class="text-[10px] font-semibold text-slate-400 tracking-wider uppercase block mt-1">QUẢN LÝ TÀI SẢN</span>
+</div>
+</div>
+<!-- Tiêu đề nhóm menu -->
+<div class="px-6 pt-3 pb-2">
+<span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">QUẢN LÝ NGHIỆP VỤ</span>
+</div>
+<!-- Menu Items -->
+<nav class="px-3 space-y-1 text-sm font-medium">
+<!-- Tổng quan -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Tổng quan</span>
+</a>
+<!-- Danh mục tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7zm0 5h16M9 4v16" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Danh mục tài sản</span>
+</a>
+<!-- Cấp phát tài sản (Active / Dropdown Mở) -->
+<div class="space-y-1">
+<button class="w-full flex items-center justify-between px-3 py-2 text-blue-600 bg-blue-50/70 rounded-lg transition-colors font-semibold" type="button">
+<div class="flex items-center gap-3">
+<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Cấp phát tài sản</span>
+</div>
+<svg class="w-4 h-4 text-blue-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- Sub-menu -->
+<div class="pl-9 pr-2 space-y-1">
+<a class="flex items-center gap-2.5 px-3 py-2 text-slate-600 hover:text-blue-600 rounded-lg hover:bg-slate-50 transition-colors text-xs font-medium" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+<span class="">Yêu cầu cấp phát</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 text-slate-600 hover:text-blue-600 rounded-lg hover:bg-slate-50 transition-colors text-xs font-medium" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+<span class="">Định mức tài sản</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 text-blue-600 bg-blue-100/50 rounded-lg font-semibold text-xs" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+<span class="">Bàn giao tài sản</span>
+</a>
+</div>
+</div>
+<!-- Thu hồi tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Thu hồi tài sản</span>
+</a>
+<!-- Điều chuyển tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Điều chuyển tài sản</span>
+</a>
+<!-- Bảo trì tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Bảo trì tài sản</span>
+</a>
+<!-- Kiểm kê tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Kiểm kê tài sản</span>
+</a>
+</nav>
+</div>
+<!-- Bottom User & Help Section -->
+<div class="p-3 border-t border-slate-200 space-y-2">
+<!-- Trợ giúp -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 text-sm font-medium transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Trợ giúp</span>
+</a>
+<!-- Thông tin User -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100/70 transition cursor-pointer">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-9 h-9 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-xs shrink-0">
+            LP
+          </div>
+<div class="truncate leading-tight">
+<h4 class="text-xs font-bold text-slate-900 truncate">Lê Hoàng Phúc</h4>
+<span class="text-[10px] text-slate-500 truncate block">Nhân viên quản lý tài sản</span>
+</div>
+</div>
+<svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- BEGIN: TopHeader -->
+<header class="h-14 bg-white border-b border-slate-200 px-8 flex items-center justify-between shrink-0" data-purpose="top-navigation">
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+<a class="hover:text-blue-600 transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-400 hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+<span class="text-slate-300">/</span>
+<a class="hover:text-blue-600 transition-colors" href="#">Cấp phát tài sản</a>
+<span class="text-slate-300">/</span>
+<a class="hover:text-blue-600 transition-colors" href="#">Yêu cầu cấp phát</a>
+<span class="text-slate-300">/</span>
+<span class="text-slate-900 font-semibold">Biên bản bàn giao tài sản</span>
+</nav>
+<!-- Right Actions: Notifications & Avatar -->
+<div class="flex items-center gap-4">
+<!-- Nút chuông thông báo có badge số 3 -->
+<button aria-label="Thông báo" class="relative p-1.5 text-slate-500 hover:text-slate-700 transition" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">3</span>
+</button>
+<!-- Profile Avatar NT -->
+<div class="flex items-center gap-1.5 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-[#8292d9] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            NT
+          </div>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: ScrollableBodyContent -->
+<main class="flex-1 overflow-y-auto px-8 py-6">
+<div class="max-w-[1180px] mx-auto space-y-6">
+<!-- BEGIN: FormContainerCard -->
+<div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-8 space-y-7">
+<!-- Header Tiêu đề & Thông tin số biên bản -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4" data-purpose="document-title">
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-slate-900">Biên bản bàn giao tài sản</h2>
+<p class="text-xs text-slate-500 mt-1">Lập biên bản bàn giao tài sản giữa các cá nhân/đơn vị trong tổ chức</p>
+</div>
+<!-- Khối 2 ô thông tin biên bản bên góc phải -->
+<div class="flex items-center gap-3">
+<!-- Số biên bản -->
+<div class="bg-slate-50/60 border border-slate-200 rounded-lg px-4 py-2 min-w-[155px]">
+<div class="text-[11px] text-slate-500 font-medium">Số biên bản</div>
+<div class="text-sm font-bold text-slate-900 mt-0.5">BBBG-2024-0325</div>
+</div>
+<!-- Ngày lập biên bản -->
+<div class="bg-slate-50/60 border border-slate-200 rounded-lg px-4 py-2 min-w-[155px]">
+<div class="text-[11px] text-slate-500 font-medium">Ngày lập biên bản</div>
+<div class="text-sm font-bold text-slate-900 mt-0.5">25/03/2024</div>
+</div>
+</div>
+</div>
+<!-- BEGIN: HandoverParties -->
+<!-- 2 Card: Bên giao & Bên nhận -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card: Bên giao -->
+<div class="bg-[#f0f6ff]/70 border border-blue-100 rounded-xl p-5" data-purpose="sender-card">
+<div class="mb-4">
+<h3 class="text-base font-bold text-blue-600 leading-none">Bên giao</h3>
+<p class="text-xs text-slate-500 mt-1">Thông tin người bàn giao tài sản</p>
+</div>
+<div class="space-y-3.5">
+<!-- Hàng 1 -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">
+                      Họ và tên <span class="text-red-500">*</span>
+</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-blue-500 focus:border-blue-500 shadow-sm" readonly="" type="text" value="Trần Văn Minh">
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">
+                      Mã nhân viên <span class="text-red-500">*</span>
+</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-blue-500 focus:border-blue-500 shadow-sm" readonly="" type="text" value="NV00123">
+</div>
+</div>
+<!-- Hàng 2 -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Phòng ban</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-blue-500 focus:border-blue-500 shadow-sm" readonly="" type="text" value="Phòng Hành chính">
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Chức vụ</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-blue-500 focus:border-blue-500 shadow-sm" readonly="" type="text" value="Chuyên viên">
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Bên nhận -->
+<div class="bg-[#f0faf5] border border-emerald-100 rounded-xl p-5" data-purpose="receiver-card">
+<div class="mb-4">
+<h3 class="text-base font-bold text-emerald-700 leading-none">Bên nhận</h3>
+<p class="text-xs text-slate-500 mt-1">Thông tin người nhận tài sản</p>
+</div>
+<div class="space-y-3.5">
+<!-- Hàng 1 -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">
+                      Họ và tên <span class="text-red-500">*</span>
+</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm" readonly="" type="text" value="Nguyễn Thị Mai">
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">
+                      Mã nhân viên <span class="text-red-500">*</span>
+</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm" readonly="" type="text" value="NV00456">
+</div>
+</div>
+<!-- Hàng 2 -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Phòng ban</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm" readonly="" type="text" value="Phòng Kinh doanh">
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Chức vụ</label>
+<input class="w-full text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 text-slate-800 font-medium focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm" readonly="" type="text" value="Trưởng phòng">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END: HandoverParties -->
+<!-- BEGIN: AssetListSection -->
+<div class="space-y-3.5" data-purpose="asset-list-table">
+<div class="flex items-center justify-between">
+<h3 class="text-base font-bold text-slate-900">Danh sách tài sản bàn giao</h3>
+<button class="inline-flex items-center justify-center px-4 py-1.5 text-xs font-semibold text-blue-600 bg-white border border-blue-500 hover:bg-blue-50 rounded-lg transition-colors shadow-sm" type="button">
+                Thêm tài sản vào
+              </button>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto border border-blue-100 rounded-xl shadow-xs">
+<table class="w-full text-xs text-left border-collapse">
+<thead>
+<tr class="bg-[#e8f1fc] text-slate-800 font-bold border-b border-blue-200/80">
+<th class="py-3 px-3 text-center w-12 font-bold" scope="col">STT</th>
+<th class="py-3 px-4 font-bold" scope="col">Tên tài sản</th>
+<th class="py-3 px-4 font-bold" scope="col">Loại tài sản</th>
+<th class="py-3 px-3 font-bold text-center" scope="col">Đơn vị tính</th>
+<th class="py-3 px-3 font-bold text-center" scope="col">Số lượng</th>
+<th class="py-3 px-4 font-bold text-right" scope="col">Đơn giá</th>
+<th class="py-3 px-4 font-bold text-right" scope="col">Thành tiền</th>
+<th class="py-3 px-4 font-bold" scope="col">Ghi chú</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 bg-white text-slate-700">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium">1</td>
+<td class="py-3 px-4 font-medium text-slate-900">Laptop Dell Latitude 7440</td>
+<td class="py-3 px-4 text-slate-600">Thiết bị CNTT</td>
+<td class="py-3 px-3 text-center text-slate-600">Chiếc</td>
+<td class="py-3 px-3 text-center font-medium">1</td>
+<td class="py-3 px-4 text-right text-slate-600 font-mono">25.000.000</td>
+<td class="py-3 px-4 text-right text-slate-900 font-medium font-mono">25.000.000</td>
+<td class="py-3 px-4 text-slate-500">Còn tốt, kèm sạc</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium">2</td>
+<td class="py-3 px-4 font-medium text-slate-900">Màn hình Dell 27 inch</td>
+<td class="py-3 px-4 text-slate-600">Thiết bị CNTT</td>
+<td class="py-3 px-3 text-center text-slate-600">Chiếc</td>
+<td class="py-3 px-3 text-center font-medium">1</td>
+<td class="py-3 px-4 text-right text-slate-600 font-mono">6.500.000</td>
+<td class="py-3 px-4 text-right text-slate-900 font-medium font-mono">6.500.000</td>
+<td class="py-3 px-4 text-slate-500">Đã qua sử dụng</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium">3</td>
+<td class="py-3 px-4 font-medium text-slate-900">Bàn làm việc văn phòng</td>
+<td class="py-3 px-4 text-slate-600">Nội thất</td>
+<td class="py-3 px-3 text-center text-slate-600">Chiếc</td>
+<td class="py-3 px-3 text-center font-medium">1</td>
+<td class="py-3 px-4 text-right text-slate-600 font-mono">2.800.000</td>
+<td class="py-3 px-4 text-right text-slate-900 font-medium font-mono">2.800.000</td>
+<td class="py-3 px-4 text-slate-500">Màu nâu, còn tốt</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium">4</td>
+<td class="py-3 px-4 font-medium text-slate-900">Ghế xoay văn phòng</td>
+<td class="py-3 px-4 text-slate-600">Nội thất</td>
+<td class="py-3 px-3 text-center text-slate-600">Chiếc</td>
+<td class="py-3 px-3 text-center font-medium">1</td>
+<td class="py-3 px-4 text-right text-slate-600 font-mono">1.200.000</td>
+<td class="py-3 px-4 text-right text-slate-900 font-medium font-mono">1.200.000</td>
+<td class="py-3 px-4 text-slate-500">Còn tốt</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium">5</td>
+<td class="py-3 px-4 font-medium text-slate-900">Điện thoại IP</td>
+<td class="py-3 px-4 text-slate-600">Thiết bị văn phòng</td>
+<td class="py-3 px-3 text-center text-slate-600">Chiếc</td>
+<td class="py-3 px-3 text-center font-medium">1</td>
+<td class="py-3 px-4 text-right text-slate-600 font-mono">1.500.000</td>
+<td class="py-3 px-4 text-right text-slate-900 font-medium font-mono">1.500.000</td>
+<td class="py-3 px-4 text-slate-500">Đã qua sử dụng</td>
+</tr>
+<!-- Summary Row: Tổng cộng -->
+<tr class="bg-[#edf4fd] font-bold text-slate-900 border-t border-blue-200">
+<td class="py-3.5 px-4 font-bold text-left text-slate-900 text-xs" colspan="4">Tổng cộng</td>
+<td class="py-3.5 px-3 text-center font-bold text-slate-900 font-mono">5</td>
+<td class="py-3.5 px-4"></td>
+<td class="py-3.5 px-4 text-right font-bold text-slate-900 font-mono">37.000.000</td>
+<td class="py-3.5 px-4"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END: AssetListSection -->
+<!-- BEGIN: TotalValueCard -->
+<div class="border border-slate-200/90 rounded-xl p-5 bg-white space-y-2" data-purpose="total-value">
+<h4 class="text-sm font-bold text-slate-900">Tổng giá trị tài sản bàn giao</h4>
+<div class="flex flex-col md:flex-row md:items-center gap-6 pt-1">
+<!-- Bằng số -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500">Tổng giá trị (bằng số):</span>
+<span class="text-lg font-bold text-blue-600 font-mono">37.000.000 VNĐ</span>
+</div>
+<!-- Vạch phân cách -->
+<div class="hidden md:block w-px h-6 bg-slate-300"></div>
+<!-- Bằng chữ -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500">Tổng giá trị (bằng chữ):</span>
+<span class="text-sm font-bold text-blue-600">Ba mươi bảy triệu đồng chẵn.</span>
+</div>
+</div>
+</div>
+<!-- END: TotalValueCard -->
+<!-- BEGIN: CommitmentBox -->
+<div class="bg-[#fef9ee] border border-[#fae5b6] rounded-xl p-4" data-purpose="commitment-note">
+<h4 class="text-xs font-bold text-slate-900 mb-1">Cam kết bàn giao</h4>
+<p class="text-xs text-slate-700 leading-relaxed">
+              Kể từ ngày <span class="font-bold text-blue-600">25/03/2024</span>, số tài sản trên sẽ do <span class="font-bold text-blue-600">Nguyễn Thị Mai</span> chịu trách nhiệm sử dụng và quản lý.
+            </p>
+</div>
+<!-- END: CommitmentBox -->
+<!-- BEGIN: FormActionButtons -->
+<div class="flex justify-end items-center gap-3 pt-2" data-purpose="form-actions">
+  <button type="button" class="px-6 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 font-medium text-sm transition-colors cursor-pointer">
+    Lưu nháp
+  </button>
+  <button type="button" class="px-8 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm shadow-sm transition-colors cursor-pointer">
+    Gửi
+  </button>
+</div>
+<!-- END: FormActionButtons -->
+</div>
+<!-- END: FormContainerCard -->
+</div>
+</main>
+<!-- END: ScrollableBodyContent -->
+</div>
+<!-- END: MainContentArea -->
+
+
+</body></html>

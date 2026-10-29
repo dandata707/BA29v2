@@ -1,0 +1,6 @@
+{
+  "name": "BA Asset - Hệ Thống Quản Lý Thanh Lý Tài Sản",
+  "description": "Hệ thống quản lý quy trình thanh lý tài sản cố định chuẩn doanh nghiệp: lập đề nghị, thẩm định hiện trạng, trình duyệt, thanh lý đa đợt và đóng hồ sơ 7 thành phần pháp lý.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

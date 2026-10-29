@@ -1,0 +1,6 @@
+{
+  "name": "Hệ Thống Thu Hồi Tài Sản",
+  "description": "Phân hệ quản lý thu hồi tài sản - số hoá quy trình tạo biên bản, thông báo, quét QR bàn giao, ghi nhận tình trạng và ký số biên bản điện tử.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

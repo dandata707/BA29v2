@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="vi" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AssetFlow - Biên bản bàn giao tài sản</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-scrollbars">
+    /* Tùy chỉnh thanh cuộn nhẹ nhàng phù hợp Enterprise App */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-[#f0f4f9] font-sans text-slate-700 antialiased h-screen flex overflow-hidden">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 bg-white border-r border-slate-200 flex flex-col justify-between shrink-0 select-none" data-purpose="main-navigation">
+<div class="flex flex-col h-full overflow-y-auto">
+<!-- Logo thương hiệu AssetFlow -->
+<div class="px-6 py-5 flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-cyan-400 flex items-center justify-center shadow-md shadow-blue-500/20">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tight text-slate-900 leading-none">AssetFlow</h1>
+<span class="text-[10px] font-semibold text-slate-400 tracking-wider uppercase block mt-1">QUẢN LÝ TÀI SẢN</span>
+</div>
+</div>
+<!-- Tiêu đề nhóm menu -->
+<div class="px-6 pt-3 pb-2">
+<span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">QUẢN LÝ NGHIỆP VỤ</span>
+</div>
+<!-- Menu Items -->
+<nav class="px-3 space-y-1 text-sm font-medium">
+<!-- Tổng quan -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Tổng quan</span>
+</a>
+<!-- Danh mục tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7zm0 5h16M9 4v16" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Danh mục tài sản</span>
+</a>
+<!-- Cấp phát tài sản (Active / Dropdown Mở) -->
+<div class="space-y-1">
+<button class="w-full flex items-center justify-between px-3 py-2 text-blue-600 bg-blue-50/70 rounded-lg transition-colors font-semibold" type="button">
+<div class="flex items-center gap-3">
+<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Cấp phát tài sản</span>
+</div>
+<svg class="w-4 h-4 text-blue-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- Sub-menu -->
+<div class="pl-9 pr-2 space-y-1">
+<a class="flex items-center gap-2.5 px-3 py-2 text-slate-600 hover:text-blue-600 rounded-lg hover:bg-slate-50 transition-colors text-xs font-medium" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+<span class="">Yêu cầu cấp phát</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 text-slate-600 hover:text-blue-600 rounded-lg hover:bg-slate-50 transition-colors text-xs font-medium" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+<span class="">Định mức tài sản</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-2 text-blue-600 bg-blue-100/50 rounded-lg font-semibold text-xs" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+<span class="">Bàn giao tài sản</span>
+</a>
+</div>
+</div>
+<!-- Thu hồi tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Thu hồi tài sản</span>
+</a>
+<!-- Điều chuyển tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Điều chuyển tài sản</span>
+</a>
+<!-- Bảo trì tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Bảo trì tài sản</span>
+</a>
+<!-- Kiểm kê tài sản -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Kiểm kê tài sản</span>
+</a>
+</nav>
+</div>
+<!-- Bottom User & Help Section -->
+<div class="p-3 border-t border-slate-200 space-y-2">
+<!-- Trợ giúp -->
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 text-sm font-medium transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="">Trợ giúp</span>
+</a>
+<!-- Thông tin User -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100/70 transition cursor-pointer">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-9 h-9 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-xs shrink-0">
+            LP
+          </div>
+<div class="truncate leading-tight">
+<h4 class="text-xs font-bold text-slate-900 truncate">Lê Hoàng Phúc</h4>
+<span class="text-[10px] text-slate-500 truncate block">Nhân viên quản lý tài sản</span>
+</div>
+</div>
+<svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- BEGIN: TopHeader -->
+<header class="h-14 bg-white border-b border-slate-200 px-8 flex items-center justify-between shrink-0" data-purpose="top-navigation">
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-slate-500 font-medium"><a class="hover:text-blue-600 transition-colors" href="#"><svg class="w-4 h-4 text-slate-400 hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a><span class="text-slate-300">/</span><a class="hover:text-blue-600 transition-colors" href="#">Cấp phát tài sản</a><span class="text-slate-300">/</span><a class="hover:text-blue-600 transition-colors" href="#">Bàn giao tài sản</a><span class="text-slate-300">/</span><span class="text-slate-900 font-semibold">Danh sách biên bản</span></nav>
+<!-- Right Actions: Notifications & Avatar -->
+<div class="flex items-center gap-4">
+<!-- Nút chuông thông báo có badge số 3 -->
+<button aria-label="Thông báo" class="relative p-1.5 text-slate-500 hover:text-slate-700 transition" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">3</span>
+</button>
+<!-- Profile Avatar NT -->
+<div class="flex items-center gap-1.5 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-[#8292d9] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            NT
+          </div>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: ScrollableBodyContent -->
+<main class="flex-1 overflow-y-auto px-8 py-6"><div class="max-w-[1180px] mx-auto space-y-6">
+<!-- Header: Title & Action -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-slate-900">Danh sách biên bản bàn giao</h2>
+<p class="text-xs text-slate-500 mt-1">Quản lý, theo dõi tiến độ lập và ký nhận biên bản bàn giao tài sản.</p>
+</div>
+<div class="flex items-center gap-3">
+
+</div>
+</div>
+<!-- Filter & Search Bar -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-4 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+<!-- Search input -->
+<div class="md:col-span-2 relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<input class="w-full text-xs pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Tìm kiếm mã biên bản, người giao, người nhận..." type="text">
+</div>
+<!-- Dropdown: Phòng ban -->
+<div>
+<select class="w-full text-xs py-2 px-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 focus:bg-white focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+<option value="">Tất cả phòng ban</option>
+<option value="hc">Phòng Hành chính</option>
+<option value="kd">Phòng Kinh doanh</option>
+<option value="ns">Phòng Nhân sự</option>
+<option value="cn">Phòng Công nghệ</option>
+<option value="kt">Phòng Kế toán</option>
+</select>
+</div>
+<!-- Dropdown: Trạng thái & Reset -->
+<div class="flex items-center gap-2">
+<select class="w-full text-xs py-2 px-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 focus:bg-white focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+<option value="">Tất cả trạng thái</option>
+<option value="draft">Nháp</option>
+<option value="pending">Chờ ký</option>
+<option value="completed">Hoàn tất</option>
+</select>
+<button class="p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg border border-slate-200 transition shrink-0" title="Xóa bộ lọc" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Status Tabs & Sorter -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<!-- Tabs -->
+<div class="flex items-center gap-1.5 p-1 bg-slate-200/60 rounded-xl w-fit text-xs font-semibold select-none">
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white text-blue-600 shadow-xs" type="button">
+<span class="">Tất cả</span>
+<span class="px-1.5 py-0.5 rounded-full text-[10px] bg-blue-100 text-blue-700 font-bold leading-none">28</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-white/60 transition" type="button">
+<span class="">Nháp</span>
+<span class="px-1.5 py-0.5 rounded-full text-[10px] bg-slate-200 text-slate-700 font-bold leading-none">4</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-white/60 transition" type="button">
+<span class="">Chờ ký</span>
+<span class="px-1.5 py-0.5 rounded-full text-[10px] bg-amber-100 text-amber-700 font-bold leading-none">9</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-white/60 transition" type="button">
+<span class="">Hoàn tất</span>
+<span class="px-1.5 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-700 font-bold leading-none">15</span>
+</button>
+</div>
+<!-- Quick Sort -->
+<div class="flex items-center gap-2 text-xs text-slate-500">
+<span class="font-medium">Sắp xếp:</span>
+<select class="text-xs py-1.5 px-3 bg-white border border-slate-200 rounded-lg text-slate-700 font-medium focus:ring-1 focus:ring-blue-500">
+<option>Ngày lập: Mới nhất trước</option>
+<option>Ngày lập: Cũ nhất trước</option>
+<option>Giá trị: Cao đến thấp</option>
+<option>Giá trị: Thấp đến cao</option>
+</select>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-xs text-left border-collapse">
+<thead>
+<tr class="bg-[#f8fafc] text-slate-700 font-bold border-b border-slate-200">
+<th class="py-3.5 px-3 text-center w-12 font-bold" scope="col">STT</th>
+<th class="py-3.5 px-4 font-bold" scope="col">Mã biên bản</th>
+<th class="py-3.5 px-4 font-bold" scope="col">Bên giao</th>
+<th class="py-3.5 px-4 font-bold" scope="col">Bên nhận</th>
+<th class="py-3.5 px-3 text-center font-bold" scope="col">Số lượng TS</th>
+<th class="py-3.5 px-4 text-right font-bold" scope="col">Tổng giá trị</th>
+<th class="py-3.5 px-4 text-center font-bold" scope="col">Ngày lập</th>
+<th class="py-3.5 px-4 text-center font-bold" scope="col">Trạng thái</th>
+<th class="py-3.5 px-3 text-center w-14 font-bold" scope="col">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium text-slate-500">1</td>
+<td class="py-3 px-4 font-semibold text-blue-600 font-mono hover:underline cursor-pointer">BBBG-2024-0325</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Trần Văn Minh</div>
+
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Nguyễn Thị Mai</div>
+
+</td>
+<td class="py-3 px-3 text-center font-medium">5 tài sản</td>
+<td class="py-3 px-4 text-right font-semibold font-mono text-slate-900">37.000.000 đ</td>
+<td class="py-3 px-4 text-center text-slate-600">25/03/2024</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Chờ ký
+              </span>
+</td>
+<td class="py-3 px-3 text-center relative">
+  <button class="p-1 text-slate-700 bg-slate-100 rounded-md transition hover:bg-slate-200 cursor-pointer" onclick="const menu = this.nextElementSibling; menu.classList.toggle('hidden');" type="button" aria-label="Thao tác biên bản">
+    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+    </svg>
+  </button>
+  <div class="absolute right-3 top-10 w-44 bg-white rounded-xl shadow-lg border border-slate-200 py-1.5 z-30 text-left text-xs font-medium text-slate-700">
+    <a href="#" class="flex items-center gap-2.5 px-3.5 py-2 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+      <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+      </svg>
+      <span class="">Xem chi tiết</span>
+    </a>
+    <a href="#" class="flex items-center gap-2.5 px-3.5 py-2 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+      <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+      </svg>
+      <span class="">Sửa biên bản</span>
+    </a>
+    <div class="border-t border-slate-100 my-1"></div>
+    <a href="#" class="flex items-center gap-2.5 px-3.5 py-2 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+      <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+      </svg>
+      <span class="">In biên bản</span>
+    </a>
+  </div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium text-slate-500">2</td>
+<td class="py-3 px-4 font-semibold text-blue-600 font-mono hover:underline cursor-pointer">BBBG-2024-0324</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Trần Văn Minh</div>
+
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Nguyễn Minh Anh</div>
+
+</td>
+<td class="py-3 px-3 text-center font-medium">3 tài sản</td>
+<td class="py-3 px-4 text-right font-semibold font-mono text-slate-900">28.500.000 đ</td>
+<td class="py-3 px-4 text-center text-slate-600">24/03/2024</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Hoàn tất
+              </span>
+</td>
+<td class="py-3 px-3 text-center">
+<button class="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition" type="button">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium text-slate-500">3</td>
+<td class="py-3 px-4 font-semibold text-blue-600 font-mono hover:underline cursor-pointer">BBBG-2024-0323</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Lê Hoàng Phúc</div>
+
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Trần Hoàng Nam</div>
+
+</td>
+<td class="py-3 px-3 text-center font-medium">2 tài sản</td>
+<td class="py-3 px-4 text-right font-semibold font-mono text-slate-900">15.200.000 đ</td>
+<td class="py-3 px-4 text-center text-slate-600">23/03/2024</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                Nháp
+              </span>
+</td>
+<td class="py-3 px-3 text-center">
+<button class="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition" type="button">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium text-slate-500">4</td>
+<td class="py-3 px-4 font-semibold text-blue-600 font-mono hover:underline cursor-pointer">BBBG-2024-0322</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Lê Hoàng Phúc</div>
+
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Vũ Ngọc Mai</div>
+
+</td>
+<td class="py-3 px-3 text-center font-medium">4 tài sản</td>
+<td class="py-3 px-4 text-right font-semibold font-mono text-slate-900">32.800.000 đ</td>
+<td class="py-3 px-4 text-center text-slate-600">22/03/2024</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Chờ ký
+              </span>
+</td>
+<td class="py-3 px-3 text-center">
+<button class="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition" type="button">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium text-slate-500">5</td>
+<td class="py-3 px-4 font-semibold text-blue-600 font-mono hover:underline cursor-pointer">BBBG-2024-0321</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Trần Văn Minh</div>
+
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Đỗ Minh Quân</div>
+
+</td>
+<td class="py-3 px-3 text-center font-medium">6 tài sản</td>
+<td class="py-3 px-4 text-right font-semibold font-mono text-slate-900">54.000.000 đ</td>
+<td class="py-3 px-4 text-center text-slate-600">20/03/2024</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Hoàn tất
+              </span>
+</td>
+<td class="py-3 px-3 text-center">
+<button class="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition" type="button">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3 px-3 text-center font-medium text-slate-500">6</td>
+<td class="py-3 px-4 font-semibold text-blue-600 font-mono hover:underline cursor-pointer">BBBG-2024-0320</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Lê Hoàng Phúc</div>
+
+</td>
+<td class="py-3 px-4">
+<div class="font-medium text-slate-900">Phạm Đức Anh</div>
+
+</td>
+<td class="py-3 px-3 text-center font-medium">1 tài sản</td>
+<td class="py-3 px-4 text-right font-semibold font-mono text-slate-900">8.900.000 đ</td>
+<td class="py-3 px-4 text-center text-slate-600">19/03/2024</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Hoàn tất
+              </span>
+</td>
+<td class="py-3 px-3 text-center">
+<button class="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition" type="button">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+</svg>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 font-medium">
+<div class="flex items-center gap-2">
+<span class="">Hiển thị <strong class="text-slate-800">1–6</strong> trên <strong class="text-slate-800">28</strong> biên bản</span>
+<span class="text-slate-300">|</span>
+<select class="text-xs py-1 px-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 focus:bg-white focus:ring-1 focus:ring-blue-500">
+<option>6 / trang</option>
+<option>10 / trang</option>
+<option>25 / trang</option>
+</select>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1.5 rounded-lg border border-slate-200 text-slate-400 cursor-not-allowed" disabled="" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center" type="button">1</button>
+<button class="w-8 h-8 rounded-lg text-slate-600 hover:bg-slate-100 flex items-center justify-center transition" type="button">2</button>
+<button class="w-8 h-8 rounded-lg text-slate-600 hover:bg-slate-100 flex items-center justify-center transition" type="button">3</button>
+<span class="px-1 text-slate-400">...</span>
+<button class="w-8 h-8 rounded-lg text-slate-600 hover:bg-slate-100 flex items-center justify-center transition" type="button">5</button>
+<button class="px-2.5 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 transition" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div></main>
+<!-- END: ScrollableBodyContent -->
+</div>
+<!-- END: MainContentArea -->
+
+
+
+
+</body></html>

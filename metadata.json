@@ -1,0 +1,8 @@
+{
+  "name": "Remix AssetFlow v2 ",
+  "description": "Quản lý tài sản - Phiếu yêu cầu cấp phát của tôi",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
